@@ -12,8 +12,6 @@ const setting: any = {
   },
 };
 
-console.log(setting);
-
 const option: string = process.env.NODE_ENV;
 
 export default setting[option];

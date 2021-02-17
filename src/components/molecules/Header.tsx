@@ -34,7 +34,7 @@ const Header = (): JSX.Element => {
 
   const onclickLogoutButton = () => {
     localStorage.setItem('cookie', '');
-    window.location.reload();
+    window.location.href = '/';
   };
 
   const buttonText = isLogin ? 'LOGOUT' : 'LOGIN';
