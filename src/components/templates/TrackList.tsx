@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 import Span from '../atoms/Span';
+import setting from '../../config';
 
 const StyledTrackList = styled.div`
   margin-left: 17.2%;
@@ -21,7 +22,8 @@ const TrackList = (props: any): JSX.Element => {
   const getTracks = () => {
     const cookie = localStorage.getItem('cookie');
     try {
-      fetch(process.env.REACT_APP_SERVER_ADDRESS + `/tracks`, {
+      const url = setting.SERVER_ADDRESS + `/tracks`;
+      fetch(url, {
         method: 'GET',
         headers: {
           Authorization: cookie || '',

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import setting from '../../config';
 
 const ArticleContents = (props: any): JSX.Element => {
   const curArticle = props.match.params.article_id;
@@ -8,7 +9,8 @@ const ArticleContents = (props: any): JSX.Element => {
   const getArticle = () => {
     const cookie = localStorage.getItem('cookie');
     try {
-      fetch(process.env.REACT_APP_SERVER_ADDRESS + `/articles/${curArticle}`, {
+      const url = setting.SERVER_ADDRESS + `/articles/${curArticle}`;
+      fetch(url, {
         method: 'GET',
         headers: {
           Authorization: cookie || '',

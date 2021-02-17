@@ -1,10 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import dotenv from 'dotenv';
 import { LoginContext } from '../../App';
-import axios from 'axios';
-import { Http2ServerRequest } from 'http2';
-dotenv.config();
+import setting from '../../config';
 
 const ModalWrapper = styled.div`
   id: ${props => props.id};
@@ -79,50 +76,35 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   };
 
   const login = () => {
-    const url = process.env.REACT_APP_SERVER_ADDRESS + '/auth/local';
-    // const url = process.env.REACT_APP_DEVELOP_SERVER + '/auth/local';
+    const url = setting.SERVER_ADDRESS + '/auth/local';
     try {
-      // fetch(url, {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //     'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Methods': '*',
-      //     'Access-Control-Max-Age': '3600',
-      //     'Access-Control-Allow-Headers':
-      //       'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization',
-      //   },
-      //   credentials: 'same-origin',
-      //   body: JSON.stringify({
-      //     USER_ID: id,
-      //     PASSWORD: password,
-      //   }),
-      // })
-      //   .then(res => {
-      //     console.log('res1 : ', res);
-      //     return res.json();
-      //   })
-      //   .then(res => {
-      //     console.log('res2 : ', res);
-      //     if (res.message === 'success') {
-      //       localStorage.setItem('cookie', res.result);
-      //       setMessage('이미 로그인에 성공한 유저입니다.');
-      //       setMEssageColor('blue');
-      //       onclick();
-      //       window.location.href = String(
-      //         process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
-      //       );
-      //     } else {
-      //       setMessage('아이디와 비밀번호를 다시 확인해주세요.');
-      //       setMEssageColor('red');
-      //       return;
-      //     }
-      //   });
-
-      axios
-        .get(url)
-        .then(res => console.log(res))
-        .catch(error => console.error(error));
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          USER_ID: id,
+          PASSWORD: password,
+        }),
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(res => {
+          if (res.message === 'success') {
+            localStorage.setItem('cookie', res.result);
+            setMessage('이미 로그인에 성공한 유저입니다.');
+            setMEssageColor('blue');
+            onclick();
+            window.location.href = String(setting.CLIENT_ROOT);
+          } else {
+            setMessage('아이디와 비밀번호를 다시 확인해주세요.');
+            setMEssageColor('red');
+            return;
+          }
+        });
     } catch (error) {
       setMessage('알 수 없는 이유로 로그인에 실패하였습니다.');
       setMEssageColor('red');

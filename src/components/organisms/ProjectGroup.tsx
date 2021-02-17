@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Span from '../atoms/Span';
 import Project from './Project';
+import setting from '../../config';
 
 const StyledProjectGroup = styled.div`
   top: 119px;
@@ -19,7 +20,8 @@ const ProjectGroup = (props: any): JSX.Element => {
   const getProjectsOfUser = () => {
     const cookie = localStorage.getItem('cookie');
     try {
-      fetch(process.env.REACT_APP_SERVER_ADDRESS + `/user_tracks/${TRACK_ID}`, {
+      const url = setting.SERVER_ADDRESS + `/user_tracks/${TRACK_ID}`;
+      fetch(url, {
         method: 'GET',
         headers: {
           Authorization: cookie || '',

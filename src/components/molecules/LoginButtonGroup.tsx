@@ -1,15 +1,13 @@
 import React from 'react';
-import dotenv from 'dotenv';
 import Button from '../atoms/Button';
-dotenv.config();
+import setting from '../../config';
 
 const LoginButtonGroup = (): JSX.Element => {
   const loginButtons = ['github', 'google', 'facebook'];
   const loginColor = ['rgb(70,70,70)', 'rgb(221,75,57)', 'rgb(59,89,152)'];
   const onLogin = (auth: string): (() => void) => {
     const login = (name: string) => () => {
-      const url = process.env.REACT_APP_SERVER_ADDRESS + `/auth/${name}`;
-      // const url = process.env.REACT_APP_DEVELOP_SERVER + '/auth/local';
+      const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       fetch(url).then(res => {
         window.location.href = res.url;
         localStorage.setItem('cookie', document.cookie.split('=')[1]);
