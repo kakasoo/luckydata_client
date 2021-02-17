@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
 
 const ArticleContents = (props: any): JSX.Element => {
@@ -29,8 +30,22 @@ const ArticleContents = (props: any): JSX.Element => {
 
   return (
     <div>
-      <h1>TITLE : {article.TITLE}</h1>
-      <h2>CONTENTS : {article.CONTENTS}</h2>
+      <div id="markdown_title">
+        <ReactMarkdown
+          source={
+            '# 마크다운으로 쓴 제목입니다. : ' +
+            (!article.TITLE ? '' : article.TITLE)
+          }
+        />
+      </div>
+      <div id="markdown_contents">
+        <ReactMarkdown
+          source={
+            '### 이것은 마크다운으로 쓴 내용입니다. : ' +
+            (!article.CONTENTS ? '' : article.CONTENTS)
+          }
+        />
+      </div>
     </div>
   );
 };
