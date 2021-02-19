@@ -27,13 +27,11 @@ const AboutInnerWrapper = styled.div`
 const AboutTitle = styled.span`
     font-size: 2.25em;
     font-weight: bold;
-    border: 1px solid red;
 `;
 
 const AboutImgWrapper = styled.div`
     display: flex;
     justify-content: center;
-    border: 1px solid red;
 `;
 
 const AboutImg = styled.img`

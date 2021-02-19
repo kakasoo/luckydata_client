@@ -7,7 +7,6 @@ const MainWrapper = styled.div`
   width: 100%;
   max-width: 1920px;
   margin: 0 auto;
-  border: 1px solid green;
 `;
 
 const Main = (): JSX.Element => {
