@@ -12,7 +12,7 @@ const StyledHeader = styled.div`
   background: ${props => props.color};
   border-bottom: 2px solid #eeeeee;
   justify-content: space-between;
-  margin-left: 0 auto;
+  margin: 0 auto;
   padding: 0 8px;
   z-index: 10;
 `;
