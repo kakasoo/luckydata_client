@@ -57,7 +57,7 @@ const Header = (): JSX.Element => {
         <HeaderLogoButton />
       </Link>
       <HeaderButtonGroup>
-        <Link to="/track">
+        <Link to="/tracks">
           <HeaderButton>TRACK</HeaderButton>
         </Link>
         <Button
