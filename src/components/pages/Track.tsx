@@ -12,11 +12,17 @@ const StyledTrack = styled.div`
   top: 60px;
 `;
 
+const TrackInnerWrapper = styled.div`
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+`;
+
 const Track = ({ match }: any): JSX.Element => {
   return (
     <StyledTrack>
       <ProjectBanner />
-      <>
+      <TrackInnerWrapper>
         <Route exact path={match.path} component={TrackList}></Route>
         <Route
           exact
@@ -27,7 +33,7 @@ const Track = ({ match }: any): JSX.Element => {
           path={`${match.path}/:id/articles/:article_id`}
           component={ArticleContents}
         ></Route>
-      </>
+      </TrackInnerWrapper>
     </StyledTrack>
   );
 };
