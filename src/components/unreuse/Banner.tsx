@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const Banner = (): JSX.Element => {
   return (
     <>
-      <div style={{ height: '60px' }}></div>
       <img src="/images/main_img.jpg"></img>
       <img
         style={{

@@ -6,24 +6,35 @@ import { LoginContext } from '../../App';
 import Img from '../atoms/Img';
 
 const StyledHeader = styled.div`
-  position: fixed;
   display: flex;
-  max-height: 60px;
-  width: 70%;
+  height: 60px;
+  max-width: 1240px;
   background: ${props => props.color};
   border-bottom: 2px solid #eeeeee;
   justify-content: space-between;
-  padding-left: 17.7%;
-  padding-right: 15%;
+  margin-left: auto;
+  margin-right: auto;
   z-index: 10;
+`;
+
+const HeaderLogoButton = styled.div`
+  height: 40px;
+  width: 192px;
+  background-image: url('/images/header_logo_black.png');
+  margin-top: 10px;
 `;
 
 const HeaderButtonGroup = styled.div`
   display: float;
-  margintop: auto;
-  marginbottom: auto;
-  width: 420px;
-  minwidth: 420px;
+  padding-top: 13px;
+`;
+
+const HeaderButton = styled.button`
+  color: #333333;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 12pt;
+  margin-right: 50px;
 `;
 
 const Header = (): JSX.Element => {
@@ -42,16 +53,24 @@ const Header = (): JSX.Element => {
 
   return (
     <StyledHeader color="white">
-      <Img
-        height="40px"
-        marginTop="10px"
-        src="/images/header_logo_black.png"
-      ></Img>
+      <Link to="/">
+        <HeaderLogoButton />
+      </Link>
       <HeaderButtonGroup>
-        <Link to="/tracks">
-          <Button color="#23374D">TRACK</Button>
+        <Link to="/track">
+          <HeaderButton>TRACK</HeaderButton>
         </Link>
-        <Button color="#23374D" onclick={loginOrOutclick}>
+        <Button
+          color="#FFFFFF"
+          onclick={loginOrOutclick}
+          height="34px"
+          fontSize="14px"
+          borderRadius="35px"
+          background="#121137"
+          lineHeight="1"
+          marginTop="auto"
+          marginBottom="auto"
+        >
           {buttonText}
         </Button>
       </HeaderButtonGroup>
