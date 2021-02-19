@@ -1,34 +1,69 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const StyledBannerBackground = styled.div`
+    position: relative;
+    width: 100%;
+    max-width: 1920px;
+    max-height: 895px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+`;
+
+const StyledBannerImg = styled.img`
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+`;
+
+const StyledBannerWrapper = styled.div`
+    position: absolute;
+    z-index: 1;
+    width: 414px;
+    height: 139px;
+    top: 10%;
+    left: 18%;
+`;
+
+const StyledBannerLogo = styled.div`
+    width: 414px;
+    height: 93px;
+    background-image: url("/images/main_luckydata.png");
+    margin-bottom: 64px;
+`;
+
+const StyledBannerDecoration = styled.div`
+    width: 2px;
+    height: 86px;
+    float: left;
+    background: linear-gradient(to top, #3fbbfe, #a541ff);
+    margin-right: 18px;
+`;
+
+const StyledBannerText = styled.div`
+    color: white;
+    width: 317px;
+    height: 72px;
+    text-size: 16pt;
+    line-height: 21pt;
+`;
+
 const Banner = (): JSX.Element => {
-  return (
-    <>
-      <img src="/images/main_img.jpg"></img>
-      <img
-        style={{
-          position: 'absolute',
-          top: 'calc(17.5% + 60px)',
-          left: '17.7%',
-        }}
-        src="/images/main_luckydata.png"
-      ></img>
-      <div
-        style={{
-          position: 'absolute',
-          left: '18.8%',
-          top: 'calc(35.1% + 60px)',
-          color: 'white',
-        }}
-      >
-        <p style={{ margin: '0px' }}>운수대통에서 비롯된 말로</p>
-        <p style={{ margin: '0px' }}>대자를 데이터의 데자로 바꾼 말이다</p>
-        <p style={{ margin: '0px' }}>
-          운수가 좋은 날에는 데이터 분석이 잘 될 거라는 의미이다.
-        </p>
-      </div>
-    </>
-  );
+    return (
+        <StyledBannerBackground>
+            <StyledBannerImg src="/images/main_img.jpg"></StyledBannerImg>
+            <StyledBannerWrapper>
+                <StyledBannerLogo></StyledBannerLogo>
+                <StyledBannerDecoration></StyledBannerDecoration>
+                <StyledBannerText>
+                    운수대통에서 비롯된 말로<br/>
+                    '대'를 데이터의 '데'로 바꾼 말입니다.<br/>
+                    운수 좋은 데이터 분석이 되시기 바랍니다.
+                </StyledBannerText>
+            </StyledBannerWrapper>
+        </StyledBannerBackground>
+    );
 };
 
 export default Banner;
