@@ -19,6 +19,7 @@ const StyledButton = styled.button<ButtonProps>`
   margin-bottom: ${props => props.marginBottom || '20px'};
   align-items: center;
   justify-content: center;
+  outline: none;
   onclick: ${props => props.onclick};
 `;
 

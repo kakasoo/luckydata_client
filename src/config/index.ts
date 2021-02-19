@@ -12,7 +12,8 @@ const setting: any = {
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
   },
 };
-console.log(process.env);
+
+// local에서는 REACT_APP_STAGE로 표현하고 있지만, nginx에서는 NODE_ENV=production으로 나온다.
 const option: string = (process.env.REACT_APP_STAGE as string) || 'production';
 
 export default setting[option];

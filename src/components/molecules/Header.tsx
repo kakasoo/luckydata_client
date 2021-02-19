@@ -32,9 +32,13 @@ const HeaderButtonGroup = styled.div`
 const HeaderButton = styled.button`
   color: #333333;
   border: 0;
+  outline: none;
   background-color: rgba(0, 0, 0, 0);
   font-size: 12pt;
   margin-right: 50px;
+  &: hover {
+    cursor: pointer;
+  }
 `;
 
 const Header = (): JSX.Element => {
