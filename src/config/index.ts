@@ -12,8 +12,7 @@ const setting: any = {
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
   },
 };
+console.log(process.env);
+const option: string = (process.env.REACT_APP_STAGE as string) || 'production';
 
-const option: string = process.env.REACT_APP_STAGE as string;
-console.log(option);
-console.log(setting[option]);
 export default setting[option];
