@@ -61,9 +61,13 @@ const Header = (): JSX.Element => {
         <HeaderLogoButton />
       </Link>
       <HeaderButtonGroup>
-        <Link to="/tracks">
-          <HeaderButton>TRACK</HeaderButton>
-        </Link>
+        {isLogin ? (
+          <Link to="/tracks">
+            <HeaderButton>TRACK</HeaderButton>
+          </Link>
+        ) : (
+          <></>
+        )}
         <Button
           color="#FFFFFF"
           onclick={loginOrOutclick}
