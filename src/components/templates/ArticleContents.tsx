@@ -7,8 +7,6 @@ const ArticleContents = (props: any): JSX.Element => {
   const [article, setArticle]: any = useState([]);
 
   const getArticle = () => {
-    localStorage.setItem('cookie', document.cookie.split('=')[1]);
-
     const cookie = localStorage.getItem('cookie');
     try {
       const url = setting.SERVER_ADDRESS + `/articles/${curArticle}`;

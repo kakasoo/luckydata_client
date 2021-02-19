@@ -16,13 +16,13 @@ const LoginButtonGroup = (): JSX.Element => {
         console.log('res : ', res);
         console.log('res.header : ', res.headers);
         console.log('url : ', url);
+        console.log('document : ', document);
+        console.log('document.cookie : ', document.cookie);
 
-        setTimeout(() => {
-          console.log(document.cookie.split('=')[1]);
-          localStorage.setItem('cookie', document.cookie.split('=')[1]);
+        console.log(document.cookie.split('=')[1]);
+        localStorage.setItem('cookie', document.cookie.split('=')[1]);
 
-          window.location.href = res.url;
-        }, 2000);
+        window.location.href = res.url;
       });
     };
     return login(auth);

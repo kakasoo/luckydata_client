@@ -16,8 +16,6 @@ const ProjectGroup = (props: any): JSX.Element => {
   const TRACK_ID = props.match.params.id;
 
   const getProjectsOfUser = () => {
-    localStorage.setItem('cookie', document.cookie.split('=')[1]);
-
     const cookie = localStorage.getItem('cookie');
     try {
       const url = setting.SERVER_ADDRESS + `/user_tracks/${TRACK_ID}`;
