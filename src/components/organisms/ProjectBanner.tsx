@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const ProjectBannerWrapper = styled.div`
   position: relative;
+  height: 119px;
   background-color: black;
 `;
 
