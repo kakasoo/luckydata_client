@@ -4,10 +4,7 @@ import styled from 'styled-components';
 const StyledBannerBackground = styled.div`
     position: relative;
     width: 100%;
-    max-width: 1920px;
     max-height: 895px;
-    margin-left: auto;
-    margin-right: auto;
     overflow: hidden;
 `;
 
