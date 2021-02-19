@@ -6,8 +6,12 @@ import Span from '../atoms/Span';
 
 const StyledArticle = styled.div<any>`
   key: ${props => props.index};
-  padding-left: 312px;
-  padding-bottom: 20px;
+  overflow: hidden;
+  margin-right: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: rgb(241, 240, 240);
+  text-align: 'left';
 `;
 
 const Article = (props: any) => {
@@ -21,7 +25,13 @@ const Article = (props: any) => {
         to={`${trackUrl}/articles/${articleID}`}
         style={{ fontSize: '30px' }}
       >
-        <Button width="100%">
+        <Button
+          textAlign="left"
+          height="41px"
+          width="100%"
+          marginBottom="0px"
+          marginTop="0px"
+        >
           <Span text={title} width="100%"></Span>
         </Button>
       </Link>

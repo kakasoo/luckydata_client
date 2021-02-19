@@ -18,9 +18,10 @@ const StyledButton = styled.button<ButtonProps>`
   margin-top: ${props => props.marginTop || '20px'};
   margin-bottom: ${props => props.marginBottom || '20px'};
   align-items: center;
-  justify-content: center;
+  justify-content: ${props => props.justifyContent || 'center'};
   outline: none;
   onclick: ${props => props.onclick};
+  text-align: ${props => props.textAlign || 'center'};
 `;
 
 interface ButtonProps {
@@ -35,7 +36,9 @@ interface ButtonProps {
   marginTop?: string;
   marginBottom?: string;
   onclick?: () => void;
+  justifyContent?: string;
   background?: string;
+  textAlign?: string;
 }
 
 const Button = ({ onclick, children, ...rest }: ButtonProps): JSX.Element => {

@@ -53,6 +53,7 @@ const ProjectGroup = (props: any): JSX.Element => {
         text="POST"
         letterSpacing="-0.72pt"
       ></Span>
+
       {projects?.map((project: any, index: number) => (
         <Project
           key={index}
