@@ -37,6 +37,7 @@ const TrackList = (props: any): JSX.Element => {
   const [tracks, setTracks] = useState([]);
   const getTracks = () => {
     const cookie = localStorage.getItem('cookie');
+    console.log('tracks cookie : ', cookie);
     try {
       fetch(process.env.REACT_APP_SERVER_ADDRESS + `/tracks`, {
         method: 'GET',
