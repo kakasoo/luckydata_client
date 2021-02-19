@@ -5,6 +5,7 @@ import Modal from './components/organisms/Modal';
 import LoginButtonGroup from './components/molecules/LoginButtonGroup';
 import Main from './components/pages/Main';
 import Store from './components/unreuse/Store';
+import Footer from './components/molecules/Footer';
 
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
@@ -39,6 +40,7 @@ export const App = (): JSX.Element => {
             </Modal>
             <Header />
             <Main />
+            <Footer/>
           </LoginContext.Provider>
         </Router>
       </Store>
