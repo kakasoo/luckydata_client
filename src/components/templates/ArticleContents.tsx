@@ -7,7 +7,6 @@ const ArticleWrapper = Styled.div`
   width: 100%;
   max-width: 1240px;
   margin: 0 auto;
-  border: 1px solid red;
 `;
 
 const ArticleContents = (props: any): JSX.Element => {
