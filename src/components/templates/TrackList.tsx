@@ -36,6 +36,8 @@ const TrackCardTitle = styled.span`
 const TrackList = (props: any): JSX.Element => {
   const [tracks, setTracks] = useState([]);
   const getTracks = () => {
+    localStorage.setItem('cookie', document.cookie.split('=')[1]);
+
     const cookie = localStorage.getItem('cookie');
     console.log('tracks cookie : ', cookie);
     try {
