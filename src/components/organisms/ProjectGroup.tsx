@@ -7,8 +7,6 @@ import setting from '../../config';
 const StyledProjectGroup = styled.div`
   top: 119px;
   padding-top: 62px;
-  padding-left: 17.7%;
-  padding-right: 17.7%;
 `;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types

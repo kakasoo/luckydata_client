@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
-
-const ArticleWrapper = Styled.div`
-  width: 100%;
-  max-width: 1240px;
-  margin: 0 auto;
-`;
 
 const ArticleContents = (props: any): JSX.Element => {
   const curArticle = props.match.params.article_id;
@@ -35,7 +28,7 @@ const ArticleContents = (props: any): JSX.Element => {
   }, []);
 
   return (
-    <ArticleWrapper>
+    <>
       <div id="markdown_title">
         <ReactMarkdown
           source={
@@ -52,7 +45,7 @@ const ArticleContents = (props: any): JSX.Element => {
           }
         />
       </div>
-    </ArticleWrapper>
+    </>
   );
 };
 
