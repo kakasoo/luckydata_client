@@ -14,8 +14,8 @@ const LoginButtonGroup = (): JSX.Element => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       fetch(url).then(res => {
         console.log(res);
-        window.location.href = res.url;
-        localStorage.setItem('cookie', document.cookie.split('=')[1]);
+        // window.location.href = res.url;
+        // localStorage.setItem('cookie', document.cookie.split('=')[1]);
       });
     };
     return login(auth);
