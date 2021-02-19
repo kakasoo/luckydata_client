@@ -13,13 +13,15 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       fetch(url).then(res => {
-        console.log(res);
-        console.log(res.headers);
-        console.log(url);
+        console.log('res : ', res);
+        console.log('res.header : ', res.headers);
+        console.log('url : ', url);
         console.log(document.cookie.split('=')[1]);
         localStorage.setItem('cookie', document.cookie.split('=')[1]);
 
-        window.location.href = res.url;
+        setTimeout(() => {
+          window.location.href = res.url;
+        }, 2000);
       });
     };
     return login(auth);
