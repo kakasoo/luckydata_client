@@ -13,6 +13,5 @@ const setting: any = {
   },
 };
 
-const option: string = process.env.NODE_ENV;
-
+const option: string = process.env.REACT_APP_STAGE as string;
 export default setting[option];
