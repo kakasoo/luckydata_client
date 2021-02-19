@@ -3,33 +3,34 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const StyledTrackList = styled.div`
-  width: 100%;
+  display: flex;
+  justify-content: center;
   max-width: 1240px;
   margin: 30px auto;
 `;
 
 const StyledOneTrack = styled.div`
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
   border-radius: 10px;
   overflow: hidden;
   -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.4);
+  margin: 30px;
 `;
 
 const TrackCardImg = styled.img`
-  width: 250px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   object-fit: cover;
 `;
 
 const TrackCardTitle = styled.span`
   display: inline-block;
-  width: 250px;
+  width: 300px;
   height: 50px;
   font-size: 1.15rem;
   text-align: center;
   line-height: 50px;
-  border: 1px solid red;
 `;
 
 const TrackList = (props: any): JSX.Element => {
