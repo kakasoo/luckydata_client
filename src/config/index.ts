@@ -14,4 +14,6 @@ const setting: any = {
 };
 
 const option: string = process.env.REACT_APP_STAGE as string;
+console.log(option);
+console.log(setting[option]);
 export default setting[option];
