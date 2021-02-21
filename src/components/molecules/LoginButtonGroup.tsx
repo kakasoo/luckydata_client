@@ -1,4 +1,5 @@
 import React from 'react';
+import superagent from 'superagent';
 import Button from '../atoms/Button';
 import setting from '../../config';
 
@@ -12,13 +13,22 @@ const LoginButtonGroup = (): JSX.Element => {
   const onLogin = (auth: string): (() => void) => {
     const login = (name: string) => () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
-      fetch(url, {
-        cache: 'no-cache',
-      }).then(res => {
-        console.log('cookie : ', document.cookie.split('=')[1]);
-        localStorage.setItem('cookie', document.cookie.split('=')[1]);
-        window.location.href = res.url + `?+c=${new Date()}`;
-      });
+      // fetch(url, {
+      //   cache: 'no-cache',
+      // }).then(res => {
+      //   console.log('cookie : ', document.cookie.split('=')[1]);
+      //   localStorage.setItem('cookie', document.cookie.split('=')[1]);
+      //   window.location.href = res.url + `?+c=${new Date()}`;
+      // });
+      superagent
+        .get(url)
+        .withCredentials()
+        .then((res: any) => {
+          console.log(res);
+          console.log('cookie : ', document.cookie.split('=')[1]);
+          localStorage.setItem('cookie', document.cookie.split('=')[1]);
+          window.location.href = res.url + `?+c=${new Date()}`;
+        });
     };
     return login(auth);
   };
