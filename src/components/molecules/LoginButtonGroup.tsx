@@ -22,9 +22,8 @@ const LoginButtonGroup = (): JSX.Element => {
         console.log('document.cookie : ', document.cookie);
 
         console.log(document.cookie.split('=')[1]);
-        localStorage.setItem('cookie', document.cookie.split('=')[1]);
-
         window.location.href = res.url;
+        localStorage.setItem('cookie', document.cookie.split('=')[1]);
       });
     };
     return login(auth);
