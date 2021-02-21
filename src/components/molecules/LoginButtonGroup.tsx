@@ -14,17 +14,24 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => async () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       const nextUrl = setting.SERVER_ADDRESS + `/auth`;
-      fetch(url).then(res => {
-        console.log('res1 : ', res);
-        fetch(nextUrl)
-          .then(res2 => {
-            console.log('res2 : ', res2);
-            return res2.json();
-          })
-          .then(res => {
-            console.log(res);
-          });
-      });
+      fetch(url)
+        .then(res => {
+          console.log('res1 : ', res);
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+          window.location.href = res.url;
+        });
+
+      fetch(nextUrl)
+        .then(res => {
+          console.log('res2 : ', res);
+          return res.json();
+        })
+        .then(res => {
+          console.log(res);
+        });
     };
     return login(auth);
   };
