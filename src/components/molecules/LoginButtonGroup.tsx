@@ -12,15 +12,10 @@ const LoginButtonGroup = (): JSX.Element => {
   const onLogin = (auth: string): (() => void) => {
     const login = (name: string) => () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
-      fetch(url).then(res => {
-        console.log('res : ', res);
-        console.log('res.header : ', res.headers);
-        console.log('url : ', url);
-        console.log('document : ', document);
-        console.log('document.cookie : ', document.cookie);
-
+      fetch(url, {
+        cache: 'no-cache',
+      }).then(res => {
         console.log(document.cookie.split('=')[1]);
-        window.location.href = res.url;
         localStorage.setItem('cookie', document.cookie.split('=')[1]);
       });
     };
