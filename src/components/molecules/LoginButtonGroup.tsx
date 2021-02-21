@@ -14,15 +14,10 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => async () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       const nextUrl = setting.SERVER_ADDRESS + `/auth`;
-      await fetch(url)
-        .then(res => {
-          console.log('res1 : ', res);
-          return res.json();
-        })
-        .then(res => {
-          console.log(res);
-          window.location.href = res.url;
-        });
+      await fetch(url).then(res => {
+        console.log('res1 : ', res);
+        window.location.href = res.url;
+      });
 
       await fetch(nextUrl)
         .then(res => {
