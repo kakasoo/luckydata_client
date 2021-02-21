@@ -14,14 +14,12 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => async () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       const nextUrl = setting.SERVER_ADDRESS + `/auth`;
-      const result = await fetch(url, {
-        cache: 'no-cache',
+      fetch(url).then(res => {
+        console.log('res1 : ', res);
+        fetch(nextUrl).then(res2 => {
+          console.log('res2 : ', res2);
+        });
       });
-      window.location.href = result.url + `?+c=${new Date()}`;
-
-      const nextResult: any = await fetch(nextUrl);
-      console.log('cookie : ', nextResult);
-      localStorage.setItem('cookie', nextResult.token);
     };
     return login(auth);
   };
