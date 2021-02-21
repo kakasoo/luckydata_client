@@ -12,9 +12,7 @@ const LoginButtonGroup = (): JSX.Element => {
   const onLogin = (auth: string): (() => void) => {
     const login = (name: string) => () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
-      fetch(url, {
-        credentials: 'include',
-      }).then(res => {
+      fetch(url).then(res => {
         console.log('res : ', res);
         console.log('res.header : ', res.headers);
         console.log('url : ', url);
