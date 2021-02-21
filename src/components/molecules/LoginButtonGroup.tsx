@@ -16,9 +16,14 @@ const LoginButtonGroup = (): JSX.Element => {
       const nextUrl = setting.SERVER_ADDRESS + `/auth`;
       fetch(url).then(res => {
         console.log('res1 : ', res);
-        fetch(nextUrl).then(res2 => {
-          console.log('res2 : ', res2);
-        });
+        fetch(nextUrl)
+          .then(res2 => {
+            console.log('res2 : ', res2);
+            return res2.json();
+          })
+          .then(res => {
+            console.log(res);
+          });
       });
     };
     return login(auth);
