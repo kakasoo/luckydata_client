@@ -14,7 +14,7 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => async () => {
       const url = setting.SERVER_ADDRESS + `/auth/${name}`;
       const nextUrl = setting.SERVER_ADDRESS + `/auth`;
-      fetch(url)
+      await fetch(url)
         .then(res => {
           console.log('res1 : ', res);
           return res.json();
@@ -24,7 +24,7 @@ const LoginButtonGroup = (): JSX.Element => {
           window.location.href = res.url;
         });
 
-      fetch(nextUrl)
+      await fetch(nextUrl)
         .then(res => {
           console.log('res2 : ', res);
           return res.json();
