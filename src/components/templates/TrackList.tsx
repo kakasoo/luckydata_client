@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import setting from '../../config';
 const StyledTrackList = styled.div`
   display: flex;
   justify-content: center;
@@ -39,7 +39,8 @@ const TrackList = (props: any): JSX.Element => {
     const cookie = localStorage.getItem('cookie');
     console.log('tracks cookie : ', cookie);
     try {
-      fetch(`/tracks`, {
+      const url = setting.SERVER_ADDRESS + `/tracks`;
+      fetch(url, {
         method: 'GET',
         headers: {
           Authorization: cookie || '',
