@@ -12,7 +12,7 @@ const LoginButtonGroup = (): JSX.Element => {
   const loginColor = ['rgb(70,70,70)', 'rgb(221,75,57)', 'rgb(59,89,152)'];
   const onLogin = (auth: string): (() => void) => {
     const login = (name: string) => () => {
-      const url = `http://127.0.0.1:4000/auth/${name}`;
+      const url = `/auth/${name}`;
       fetch(url).then(res => {
         console.log(res);
         console.log(url);
