@@ -14,10 +14,14 @@ const LoginButtonGroup = (): JSX.Element => {
     const login = (name: string) => () => {
       const url = `/auth/${name}`;
       fetch(url).then(res => {
+        console.log(res);
         console.log(url);
         console.log(document.cookie);
         localStorage.setItem('token', document.cookie.split('=')[1]);
-        window.location.href = res.url;
+
+        setTimeout(() => {
+          window.location.href = res.url;
+        }, 5000);
       });
     };
     return login(auth);
