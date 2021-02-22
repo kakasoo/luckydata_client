@@ -39,7 +39,7 @@ const TrackList = (props: any): JSX.Element => {
     const cookie = localStorage.getItem('cookie');
     console.log('tracks cookie : ', cookie);
     try {
-      fetch(process.env.REACT_APP_SERVER_ADDRESS + `/tracks`, {
+      fetch(`/tracks`, {
         method: 'GET',
         headers: {
           Authorization: cookie || '',

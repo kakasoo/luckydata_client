@@ -76,7 +76,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   };
 
   const login = () => {
-    const url = setting.SERVER_ADDRESS + '/auth/local';
+    const url = '/auth/local';
     try {
       fetch(url, {
         method: 'POST',

@@ -11,22 +11,14 @@ const LoginButtonGroup = (): JSX.Element => {
   ];
   const loginColor = ['rgb(70,70,70)', 'rgb(221,75,57)', 'rgb(59,89,152)'];
   const onLogin = (auth: string): (() => void) => {
-    const login = (name: string) => async () => {
-      const url = setting.SERVER_ADDRESS + `/auth/${name}`;
-      const nextUrl = setting.SERVER_ADDRESS + `/auth`;
-      await fetch(url).then(res => {
-        console.log('res1 : ', res);
+    const login = (name: string) => () => {
+      const url = `/auth/${name}`;
+      fetch(url).then(res => {
+        console.log(url);
+        console.log(document.cookie);
+        localStorage.setItem('token', document.cookie.split('=')[1]);
         window.location.href = res.url;
       });
-
-      await fetch(nextUrl)
-        .then(res => {
-          console.log('res2 : ', res);
-          return res.json();
-        })
-        .then(res => {
-          console.log(res);
-        });
     };
     return login(auth);
   };

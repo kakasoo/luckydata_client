@@ -9,7 +9,7 @@ const ArticleContents = (props: any): JSX.Element => {
   const getArticle = () => {
     const cookie = localStorage.getItem('cookie');
     try {
-      const url = setting.SERVER_ADDRESS + `/articles/${curArticle}`;
+      const url = `/articles/${curArticle}`;
       fetch(url, {
         method: 'GET',
         headers: {
