@@ -18,7 +18,7 @@ const ProjectGroup = (props: any): JSX.Element => {
   const getProjectsOfUser = () => {
     const cookie = localStorage.getItem('token');
     try {
-      const url = `/api/user_tracks/${TRACK_ID}`;
+      const url = setting.FETCH_ADDRESS + `/api/user_tracks/${TRACK_ID}`;
       fetch(url, {
         method: 'GET',
         headers: {

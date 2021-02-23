@@ -38,7 +38,7 @@ const TrackList = (props: any): JSX.Element => {
   const getTracks = async () => {
     const cookie = localStorage.getItem('token');
     try {
-      const url = '/api/tracks';
+      const url = setting.FETCH_ADDRESS + '/api/tracks';
       console.log(url);
       const response = await fetch(url, {
         headers: {

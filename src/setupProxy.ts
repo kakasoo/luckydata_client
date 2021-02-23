@@ -1,10 +1,12 @@
 import { createProxyMiddleware } from 'http-proxy-middleware';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function (app: any): void {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://localhost:4000',
+      target: process.env.REACT_APP_SERVER_ADDRESS,
       changeOrigin: true,
     }),
   );

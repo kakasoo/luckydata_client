@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 import qs from 'qs';
+import setting from '../../config';
 
 function Callback({ history, location }: any) {
   useEffect(() => {
@@ -12,12 +13,10 @@ function Callback({ history, location }: any) {
 
       try {
         // 이 부분은 express에 요청하여 JWT 토큰을 발급합니다.
-        const response: any = await axios.post(
-          `http://localhost:4000/api/auth/github`,
-          {
-            code,
-          },
-        );
+        const url = setting.FETCH_ADDRESS + `/api/auth/github`;
+        const response: any = await axios.post(url, {
+          code,
+        });
         // 유저 JWT 토큰을 저장합니다.
         localStorage.setItem('token', response.data.access_token);
         // history.push('/'); // 로그인이 완료되면 보여줄 페이지

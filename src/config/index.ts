@@ -1,14 +1,22 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+interface settingProps {
+  SERVER_ADDRESS?: string;
+  FETCH_ADDRESS?: string;
+  CLIENT_ROOT?: string;
+}
+
 // 로컬 서버에게 요청을 보낼 것인가, 아니면 aws 서버에게 요청을 보낼 것인가?
-const setting: any = {
+const setting: { development: settingProps; production: settingProps } = {
   development: {
     SERVER_ADDRESS: process.env.REACT_APP_DEVELOP_SERVER,
+    FETCH_ADDRESS: '',
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_DEV_ROOT_ADDRESS,
   },
   production: {
     SERVER_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
+    FETCH_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
   },
 };
