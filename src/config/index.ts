@@ -8,7 +8,11 @@ interface settingProps {
 }
 
 // 로컬 서버에게 요청을 보낼 것인가, 아니면 aws 서버에게 요청을 보낼 것인가?
-const setting: { development: settingProps; production: settingProps } = {
+const setting: {
+  development: settingProps;
+  production: settingProps;
+  test: settingProps;
+} = {
   development: {
     SERVER_ADDRESS: process.env.REACT_APP_DEVELOP_SERVER,
     FETCH_ADDRESS: '',
@@ -19,14 +23,17 @@ const setting: { development: settingProps; production: settingProps } = {
     FETCH_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
   },
+  test: {},
 };
 
 // local에서는 REACT_APP_STAGE로 표현하고 있지만, nginx에서는 NODE_ENV=production으로 나온다.
 console.log('ENV : ', process.env);
-const option = 'development';
-// process.env.NODE_ENV ||
-// (process.env.REACT_APP_STAGE as string) ||
-// 'development';
+// const option = 'development';
+const option: 'development' | 'production' | 'test' =
+  process.env.NODE_ENV ||
+  (process.env.REACT_APP_STAGE as string) ||
+  'development';
+
 console.log(setting[option]);
 
 export default setting[option];

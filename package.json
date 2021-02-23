@@ -58,6 +58,7 @@
     ]
   },
   "devDependencies": {
+    "@types/qs": "^6.9.5",
     "@types/react": "^16.14.2",
     "@types/styled-components": "^5.1.7",
     "@types/superagent": "^4.1.10",
