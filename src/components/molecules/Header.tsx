@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 import { LoginContext } from '../../App';
-import Img from '../atoms/Img';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -43,18 +42,18 @@ const HeaderButton = styled.button`
 
 const Header = (): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
-  const isLogin = localStorage.getItem('cookie') ? true : false;
-
+  const isLogin = localStorage.getItem('token') ? true : false;
   const onclickLoginButton = () => onclick(!state);
 
   const onclickLogoutButton = () => {
-    localStorage.setItem('cookie', '');
+    localStorage.setItem('token', '');
     window.location.href = '/';
   };
 
   const buttonText = isLogin ? 'LOGOUT' : 'LOGIN';
   const loginOrOutclick = isLogin ? onclickLogoutButton : onclickLoginButton;
 
+  console.log(isLogin);
   return (
     <StyledHeader color="white">
       <Link to="/">
@@ -81,6 +80,9 @@ const Header = (): JSX.Element => {
         >
           {buttonText}
         </Button>
+        <a href="https://github.com/login/oauth/authorize?client_id=Iv1.9ef5921b3847e124&redirect_uri=http://127.0.0.1:3000/callback">
+          github
+        </a>
       </HeaderButtonGroup>
     </StyledHeader>
   );

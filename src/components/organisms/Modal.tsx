@@ -59,7 +59,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   const [messageColor, setMEssageColor] = useState('red');
 
   useEffect(() => {
-    if (localStorage.getItem('cookie')) {
+    if (localStorage.getItem('token')) {
       setMessage('이미 로그인에 성공한 유저입니다.');
       setMEssageColor('blue');
     }
@@ -76,7 +76,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   };
 
   const login = () => {
-    const url = setting.SERVER_ADDRESS + '/auth/local';
+    const url = '/api/auth/local';
     try {
       fetch(url, {
         method: 'POST',
@@ -94,7 +94,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
         })
         .then(res => {
           if (res.message === 'success') {
-            localStorage.setItem('cookie', res.result);
+            localStorage.setItem('token', res.result);
             setMessage('이미 로그인에 성공한 유저입니다.');
             setMEssageColor('blue');
             onclick();

@@ -14,6 +14,11 @@ const setting: any = {
 };
 
 // local에서는 REACT_APP_STAGE로 표현하고 있지만, nginx에서는 NODE_ENV=production으로 나온다.
-const option: string = (process.env.REACT_APP_STAGE as string) || 'production';
+console.log('ENV : ', process.env);
+const option = 'development';
+// process.env.NODE_ENV ||
+// (process.env.REACT_APP_STAGE as string) ||
+// 'development';
+console.log(setting[option]);
 
 export default setting[option];

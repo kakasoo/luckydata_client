@@ -9,13 +9,13 @@ const MainWrapper = styled.div`
   margin: 0 auto;
 `;
 
-const Main = (): JSX.Element => {
+const Home = (): JSX.Element => {
   return (
     <MainWrapper>
-      <Banner/>
-      <About/>
+      <Banner />
+      <About />
     </MainWrapper>
   );
 };
 
-export default Main;
+export default Home;

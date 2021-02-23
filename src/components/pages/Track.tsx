@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectBanner from '../organisms/ProjectBanner';
 import ProjectGroup from '../organisms/ProjectGroup';
@@ -20,21 +20,24 @@ const TrackInnerWrapper = styled.div`
 
 const Track = ({ match }: any): JSX.Element => {
   return (
-    <StyledTrack>
-      <ProjectBanner />
-      <TrackInnerWrapper>
-        <Route exact path={match.path} component={TrackList}></Route>
-        <Route
-          exact
-          path={`${match.path}/:id`}
-          component={ProjectGroup}
-        ></Route>
-        <Route
-          path={`${match.path}/:id/articles/:article_id`}
-          component={ArticleContents}
-        ></Route>
-      </TrackInnerWrapper>
-    </StyledTrack>
+    <BrowserRouter>
+      <StyledTrack>
+        <ProjectBanner />
+        <TrackInnerWrapper>
+          <Route exact path={match.path} component={TrackList}></Route>
+          <Route
+            exact
+            path={`${match.path}/:id`}
+            component={ProjectGroup}
+          ></Route>
+          <Route
+            exact
+            path={`${match.path}/:id/articles/:article_id`}
+            component={ArticleContents}
+          ></Route>
+        </TrackInnerWrapper>
+      </StyledTrack>
+    </BrowserRouter>
   );
 };
 

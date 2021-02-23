@@ -35,21 +35,23 @@ const TrackCardTitle = styled.span`
 
 const TrackList = (props: any): JSX.Element => {
   const [tracks, setTracks] = useState([]);
-  const getTracks = () => {
-    const cookie = localStorage.getItem('cookie');
-    console.log('tracks cookie : ', cookie);
+  const getTracks = async () => {
+    const cookie = localStorage.getItem('token');
     try {
-      const url = setting.SERVER_ADDRESS + `/tracks`;
-      fetch(url, {
-        method: 'GET',
+      const url = '/api/tracks';
+      console.log(url);
+      const response = await fetch(url, {
         headers: {
           Authorization: cookie || '',
         },
-      })
-        .then(res => res.json())
-        .then(res => setTracks(res.result));
+      });
+      console.log('response : ', response);
+      const body = await response.json();
+      console.log('body : ', body);
+      setTracks(body.result);
     } catch (error) {
-      throw new Error('authCheck error');
+      console.log(error);
+      throw new Error(error);
     }
   };
 
@@ -60,13 +62,13 @@ const TrackList = (props: any): JSX.Element => {
   return (
     <StyledTrackList>
       {tracks?.map((track: any, index) => (
-        <StyledOneTrack>
+        <StyledOneTrack key={index}>
           <Link
             to={`${props.match.url}/${track.ID}`}
             style={{ fontSize: '30px' }}
           >
             <TrackCardImg src="/images/tracks.png"></TrackCardImg>
-            <TrackCardTitle key={index}>{track.DEPARTMENT}</TrackCardTitle>
+            <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
           </Link>
         </StyledOneTrack>
       ))}

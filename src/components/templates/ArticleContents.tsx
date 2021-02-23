@@ -7,9 +7,9 @@ const ArticleContents = (props: any): JSX.Element => {
   const [article, setArticle]: any = useState([]);
 
   const getArticle = () => {
-    const cookie = localStorage.getItem('cookie');
+    const cookie = localStorage.getItem('token');
     try {
-      const url = setting.SERVER_ADDRESS + `/articles/${curArticle}`;
+      const url = `/api/articles/${curArticle}`;
       fetch(url, {
         method: 'GET',
         headers: {
