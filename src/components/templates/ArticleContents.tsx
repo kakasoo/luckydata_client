@@ -3,33 +3,33 @@ import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const ArticleContents = (props: any): JSX.Element => {
-  const curArticle = props.match.params.article_id;
+const ArticleContents = ({ history, location, match }: any): JSX.Element => {
+  const curArticle = match.params.article_id;
   const [article, setArticle]: [
     article: never[] & { TITLE?: string; CONTENTS?: string },
     setArticle: Dispatch<SetStateAction<never[]>>,
   ] = useState([]);
 
-  const getArticle = () => {
-    const cookie = localStorage.getItem('token');
-    try {
-      const url = setting.FETCH_ADDRESS + `/api/articles/${curArticle}`;
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          Authorization: cookie || '',
-        },
-      })
-        .then(res => res.json())
-        .then(res => setArticle(res.result));
-    } catch (error) {
-      throw new Error('authCheck error');
-    }
-  };
-
   useEffect(() => {
+    const getArticle = () => {
+      const cookie = localStorage.getItem('token');
+      try {
+        const url = setting.FETCH_ADDRESS + `/api/articles/${curArticle}`;
+        fetch(url, {
+          method: 'GET',
+          headers: {
+            Authorization: cookie || '',
+          },
+        })
+          .then(res => res.json())
+          .then(res => setArticle(res.result));
+      } catch (error) {
+        throw new Error('authCheck error');
+      }
+    };
+
     getArticle();
-  }, []);
+  }, [history, location]);
 
   return (
     <>

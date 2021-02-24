@@ -36,36 +36,33 @@ const TrackCardTitle = styled.span`
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TrackList = (props: any): JSX.Element => {
+const TrackList = ({ history, location, match }: any): JSX.Element => {
   const [tracks, setTracks] = useState([]);
-  const getTracks = async () => {
-    const cookie = localStorage.getItem('token');
-    try {
-      const url = setting.FETCH_ADDRESS + '/api/tracks';
-      const response = await fetch(url, {
-        headers: {
-          Authorization: cookie || '',
-        },
-      });
-      const body = await response.json();
-      setTracks(body.result);
-    } catch (error) {
-      throw new Error(error);
-    }
-  };
 
   useEffect(() => {
+    const getTracks = async () => {
+      const cookie = localStorage.getItem('token');
+      try {
+        const url = setting.FETCH_ADDRESS + '/api/tracks';
+        const response = await fetch(url, {
+          headers: {
+            Authorization: cookie || '',
+          },
+        });
+        const body = await response.json();
+        setTracks(body.result);
+      } catch (error) {
+        throw new Error(error);
+      }
+    };
     getTracks();
-  }, []);
+  }, [history, location]);
 
   return (
     <StyledTrackList>
       {tracks?.map((track: track, index) => (
         <StyledOneTrack key={index}>
-          <Link
-            to={`${props.match.url}/${track.ID}`}
-            style={{ fontSize: '30px' }}
-          >
+          <Link to={`${match.url}/${track.ID}`} style={{ fontSize: '30px' }}>
             <TrackCardImg src="/images/tracks.png"></TrackCardImg>
             <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
           </Link>

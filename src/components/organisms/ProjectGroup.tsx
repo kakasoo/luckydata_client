@@ -9,33 +9,29 @@ const StyledProjectGroup = styled.div`
   padding-top: 62px;
 `;
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const ProjectGroup = (props: any): JSX.Element => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [projects, setProjects] = useState<any>([]);
-  // TODO : TRACK_ID를 받을 수 있도록 해야 한다.
-  const TRACK_ID = props.match.params.id;
-
-  const getProjectsOfUser = () => {
-    const cookie = localStorage.getItem('token');
-    try {
-      const url = setting.FETCH_ADDRESS + `/api/user_tracks/${TRACK_ID}`;
-      fetch(url, {
-        method: 'GET',
-        headers: {
-          Authorization: cookie || '',
-        },
-      })
-        .then(res => res.json())
-        .then(res => setProjects(res.result));
-    } catch (error) {
-      throw new Error('authCheck error');
-    }
-  };
+const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
+    const getProjectsOfUser = async () => {
+      const cookie = localStorage.getItem('token');
+      const TRACK_ID = match.params.id;
+
+      try {
+        const url = setting.FETCH_ADDRESS + `/api/user_tracks/${TRACK_ID}`;
+        const response = await fetch(url, {
+          headers: {
+            Authorization: cookie || '',
+          },
+        });
+        const body = await response.json();
+        setProjects(body.result);
+      } catch (error) {
+        throw new Error(error);
+      }
+    };
     getProjectsOfUser();
-  }, []);
+  }, [projects, history, location]);
 
   return (
     <StyledProjectGroup>
@@ -58,7 +54,7 @@ const ProjectGroup = (props: any): JSX.Element => {
           key={index}
           title={project.title}
           articles={project.child}
-          trackUrl={props.match.url}
+          trackUrl={match.url}
         ></Project>
       ))}
     </StyledProjectGroup>

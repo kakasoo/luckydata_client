@@ -9,6 +9,7 @@ const StyledProjectDescription = styled.div`
 
 const ProjectDescription = (props: { title: string }): JSX.Element => {
   const title = props.title;
+
   return (
     <StyledProjectDescription>
       <P
