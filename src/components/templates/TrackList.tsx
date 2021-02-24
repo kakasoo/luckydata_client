@@ -60,14 +60,18 @@ const TrackList = ({ history, location, match }: any): JSX.Element => {
 
   return (
     <StyledTrackList>
-      {tracks?.map((track: track, index) => (
-        <StyledOneTrack key={index}>
-          <Link to={`${match.url}/${track.ID}`} style={{ fontSize: '30px' }}>
-            <TrackCardImg src="/images/tracks.png"></TrackCardImg>
-            <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
-          </Link>
-        </StyledOneTrack>
-      ))}
+      {tracks.length ? (
+        tracks.map((track: track, index) => (
+          <StyledOneTrack key={index}>
+            <Link to={`${match.url}/${track.ID}`} style={{ fontSize: '30px' }}>
+              <TrackCardImg src="/images/tracks.png"></TrackCardImg>
+              <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
+            </Link>
+          </StyledOneTrack>
+        ))
+      ) : (
+        <div style={{ fontSize: '20px' }}>트랙 목록을 조회하는 중입니다.</div>
+      )}
     </StyledTrackList>
   );
 };

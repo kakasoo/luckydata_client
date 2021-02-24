@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Span from '../atoms/Span';
 import Project from './Project';
 import setting from '../../config';
+import P from '../atoms/P';
 
 const StyledProjectGroup = styled.div`
   top: 119px;
@@ -49,14 +50,20 @@ const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
         letterSpacing="-0.72pt"
       ></Span>
 
-      {projects?.map((project: any, index: number) => (
-        <Project
-          key={index}
-          title={project.title}
-          articles={project.child}
-          trackUrl={match.url}
-        ></Project>
-      ))}
+      {projects.length ? (
+        projects.map((project: any, index: number) => (
+          <Project
+            key={index}
+            title={project.ptitle}
+            articles={project.child}
+            trackUrl={match.url}
+          ></Project>
+        ))
+      ) : (
+        <div>
+          <P fontSize="30px" text="프로젝트 목록을 불러옵니다."></P>
+        </div>
+      )}
     </StyledProjectGroup>
   );
 };

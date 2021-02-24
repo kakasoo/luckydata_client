@@ -16,14 +16,19 @@ const ProjectList = (props: projectListProps): JSX.Element => {
 
   return (
     <StyledProjectList>
-      {articles?.map((article: article, index: number) => (
-        <Article
-          key={index}
-          title={article.atitle}
-          articleID={article.aid}
-          trackUrl={trackUrl}
-        ></Article>
-      ))}
+      {articles?.map((article: article, index: number) =>
+        article.aid ? (
+          <Article
+            index={index}
+            key={index}
+            title={article.atitle}
+            articleID={article.aid}
+            trackUrl={trackUrl}
+          ></Article>
+        ) : (
+          <div key={index}></div>
+        ),
+      )}
     </StyledProjectList>
   );
 };

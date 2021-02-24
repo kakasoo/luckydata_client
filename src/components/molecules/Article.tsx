@@ -15,6 +15,7 @@ const StyledArticle = styled.div`
 `;
 
 const Article = (props: articleProps): JSX.Element => {
+  const index = props.index;
   const title = props.title;
   const articleID = props.articleID;
   const trackUrl = props.trackUrl;
@@ -32,7 +33,12 @@ const Article = (props: articleProps): JSX.Element => {
           marginBottom="0px"
           marginTop="0px"
         >
-          <Span text={title} width="100%"></Span>
+          <Span
+            text={`${index + 1}. ` + title}
+            paddingLeft="20px"
+            fontSize="19px"
+            width="100%"
+          ></Span>
         </Button>
       </Link>
     </StyledArticle>

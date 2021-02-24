@@ -56,6 +56,7 @@ export interface spanProps {
 
 export interface articleProps {
   title: string;
+  index: number;
   articleID: number;
   trackUrl: string;
 }

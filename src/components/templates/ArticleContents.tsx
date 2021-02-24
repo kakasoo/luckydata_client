@@ -1,12 +1,13 @@
 import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
+import Span from '../atoms/Span';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ArticleContents = ({ match }: any): JSX.Element => {
   const curArticle = match.params.article_id;
   const [article, setArticle]: [
-    article: never[] & { TITLE?: string; CONTENTS?: string },
+    article: never[] & { ID?: number; TITLE?: string; CONTENTS?: string },
     setArticle: Dispatch<SetStateAction<never[]>>,
   ] = useState([]);
   useEffect(() => {
@@ -32,22 +33,23 @@ const ArticleContents = ({ match }: any): JSX.Element => {
 
   return (
     <>
-      <div id="markdown_title">
-        <ReactMarkdown
-          source={
-            '# 마크다운으로 쓴 제목입니다. : ' +
-            (!article.TITLE ? '' : article.TITLE)
-          }
-        />
-      </div>
-      <div id="markdown_contents">
-        <ReactMarkdown
-          source={
-            '### 이것은 마크다운으로 쓴 내용입니다. : ' +
-            (!article.CONTENTS ? '' : article.CONTENTS)
-          }
-        />
-      </div>
+      {article.ID ? (
+        <>
+          <div id="markdown_title" style={{ paddingLeft: '15%' }}>
+            <Span fontSize="48px" text={article.TITLE as string}></Span>
+          </div>
+          <div
+            id="markdown_contents"
+            style={{ paddingLeft: '15%', paddingRight: '15%' }}
+          >
+            <ReactMarkdown source={!article.CONTENTS ? '' : article.CONTENTS} />
+          </div>
+        </>
+      ) : (
+        <div style={{ paddingLeft: '15%', fontSize: '30px' }}>
+          게시글을 불러오는 중입니다.
+        </div>
+      )}
     </>
   );
 };
