@@ -3,13 +3,12 @@ import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const ArticleContents = ({ history, location, match }: any): JSX.Element => {
+const ArticleContents = ({ match }: any): JSX.Element => {
   const curArticle = match.params.article_id;
   const [article, setArticle]: [
     article: never[] & { TITLE?: string; CONTENTS?: string },
     setArticle: Dispatch<SetStateAction<never[]>>,
   ] = useState([]);
-
   useEffect(() => {
     const getArticle = () => {
       const cookie = localStorage.getItem('token');
@@ -29,7 +28,7 @@ const ArticleContents = ({ history, location, match }: any): JSX.Element => {
     };
 
     getArticle();
-  }, [history, location]);
+  }, []);
 
   return (
     <>

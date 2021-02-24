@@ -31,7 +31,7 @@ const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
       }
     };
     getProjectsOfUser();
-  }, [projects, history, location]);
+  }, [history, location]);
 
   return (
     <StyledProjectGroup>
