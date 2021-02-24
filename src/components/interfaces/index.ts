@@ -50,6 +50,8 @@ export interface spanProps {
   marginRight?: string;
   height?: string;
   width?: string;
+  left?: string;
+  top?: string;
 }
 
 export interface articleProps {
