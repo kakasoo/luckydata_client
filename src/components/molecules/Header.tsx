@@ -79,9 +79,6 @@ const Header = (): JSX.Element => {
         >
           {buttonText}
         </Button>
-        <a href="https://github.com/login/oauth/authorize?client_id=Iv1.9ef5921b3847e124&redirect_uri=http://127.0.0.1:3000/callback">
-          github
-        </a>
       </HeaderButtonGroup>
     </StyledHeader>
   );
