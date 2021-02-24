@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { pProps } from '../interfaces';
 
-const StyledP = styled.p<any>`
-  position: ${props => props.positon || 'static'};
+const StyledP = styled.p<pProps>`
+  position: ${props => props.position || 'static'};
   padding-left: ${props => props.paddingLeft};
   padding-right: ${props => props.paddingRight};
   padding-top: ${props => props.paddingTop};
@@ -16,7 +17,7 @@ const StyledP = styled.p<any>`
   height: ${props => props.height};
 `;
 
-const P = ({ text, ...rest }: any): JSX.Element => {
+const P = ({ text, ...rest }: pProps & { text: string }): JSX.Element => {
   return <StyledP {...rest}>{text}</StyledP>;
 };
 

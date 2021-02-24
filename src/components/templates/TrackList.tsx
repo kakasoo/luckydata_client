@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import setting from '../../config';
+import { track } from '../interfaces';
 const StyledTrackList = styled.div`
   display: flex;
   justify-content: center;
@@ -33,24 +34,21 @@ const TrackCardTitle = styled.span`
   line-height: 50px;
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TrackList = (props: any): JSX.Element => {
   const [tracks, setTracks] = useState([]);
   const getTracks = async () => {
     const cookie = localStorage.getItem('token');
     try {
       const url = setting.FETCH_ADDRESS + '/api/tracks';
-      console.log(url);
       const response = await fetch(url, {
         headers: {
           Authorization: cookie || '',
         },
       });
-      console.log('response : ', response);
       const body = await response.json();
-      console.log('body : ', body);
       setTracks(body.result);
     } catch (error) {
-      console.log(error);
       throw new Error(error);
     }
   };
@@ -61,7 +59,7 @@ const TrackList = (props: any): JSX.Element => {
 
   return (
     <StyledTrackList>
-      {tracks?.map((track: any, index) => (
+      {tracks?.map((track: track, index) => (
         <StyledOneTrack key={index}>
           <Link
             to={`${props.match.url}/${track.ID}`}

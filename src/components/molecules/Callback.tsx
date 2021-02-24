@@ -4,7 +4,7 @@ import axios from 'axios';
 import qs from 'qs';
 import setting from '../../config';
 
-function Callback({ history, location }: any) {
+function Callback({ history, location }: any): JSX.Element {
   useEffect(() => {
     async function getToken() {
       const { code } = qs.parse(location.search, {

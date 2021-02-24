@@ -53,7 +53,6 @@ const Header = (): JSX.Element => {
   const buttonText = isLogin ? 'LOGOUT' : 'LOGIN';
   const loginOrOutclick = isLogin ? onclickLogoutButton : onclickLoginButton;
 
-  console.log(isLogin);
   return (
     <StyledHeader color="white">
       <Link to="/">

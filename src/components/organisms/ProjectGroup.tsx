@@ -11,6 +11,7 @@ const StyledProjectGroup = styled.div`
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ProjectGroup = (props: any): JSX.Element => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [projects, setProjects] = useState<any>([]);
   // TODO : TRACK_ID를 받을 수 있도록 해야 한다.
   const TRACK_ID = props.match.params.id;
@@ -55,8 +56,7 @@ const ProjectGroup = (props: any): JSX.Element => {
       {projects?.map((project: any, index: number) => (
         <Project
           key={index}
-          projectNum={project.pid}
-          title={project.ptitle}
+          title={project.title}
           articles={project.child}
           trackUrl={props.match.url}
         ></Project>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 import Span from '../atoms/Span';
+import { articleProps } from '../interfaces';
 
-const StyledArticle = styled.div<any>`
-  key: ${props => props.index};
+const StyledArticle = styled.div`
   overflow: hidden;
   margin-right: 20px;
   border-radius: 5px;
@@ -14,7 +14,7 @@ const StyledArticle = styled.div<any>`
   text-align: 'left';
 `;
 
-const Article = (props: any) => {
+const Article = (props: articleProps): JSX.Element => {
   const title = props.title;
   const articleID = props.articleID;
   const trackUrl = props.trackUrl;

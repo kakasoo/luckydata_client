@@ -1,10 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Dispatch, SetStateAction } from 'react';
 import ReactMarkdown from 'react-markdown';
 import setting from '../../config';
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ArticleContents = (props: any): JSX.Element => {
   const curArticle = props.match.params.article_id;
-  const [article, setArticle]: any = useState([]);
+  const [article, setArticle]: [
+    article: never[] & { TITLE?: string; CONTENTS?: string },
+    setArticle: Dispatch<SetStateAction<never[]>>,
+  ] = useState([]);
 
   const getArticle = () => {
     const cookie = localStorage.getItem('token');

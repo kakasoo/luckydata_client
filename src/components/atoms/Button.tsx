@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ButtonProps } from '../interfaces';
 
 const StyledButton = styled.button<ButtonProps>`
   display: inline-flex;
@@ -23,23 +24,6 @@ const StyledButton = styled.button<ButtonProps>`
   onclick: ${props => props.onclick};
   text-align: ${props => props.textAlign || 'center'};
 `;
-
-interface ButtonProps {
-  children?: JSX.Element | string | null;
-  radius?: boolean;
-  color?: string;
-  width?: string;
-  height?: string;
-  fontSize?: string;
-  lineHeight?: string;
-  borderRadius?: string;
-  marginTop?: string;
-  marginBottom?: string;
-  onclick?: () => void;
-  justifyContent?: string;
-  background?: string;
-  textAlign?: string;
-}
 
 const Button = ({ onclick, children, ...rest }: ButtonProps): JSX.Element => {
   return (

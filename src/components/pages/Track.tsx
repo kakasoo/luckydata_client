@@ -18,6 +18,7 @@ const TrackInnerWrapper = styled.div`
   margin: 0 auto;
 `;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Track = ({ match }: any): JSX.Element => {
   return (
     <BrowserRouter>

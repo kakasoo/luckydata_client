@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { projectListProps, projectTitle } from '../interfaces';
 import ProjectDescription from '../molecules/ProjectDescription';
 import ProjectList from '../molecules/ProjectList';
 
-const StyledProject = styled.div<any>`
+const StyledProject = styled.div`
   display: flex;
   border: 1px solid rgb(246, 246, 246);
   border-radius: 10px;
@@ -12,8 +13,7 @@ const StyledProject = styled.div<any>`
   overflow: hidden;
 `;
 
-const Project = (props: any): JSX.Element => {
-  const project_id = props.projectNum;
+const Project = (props: projectListProps & projectTitle): JSX.Element => {
   const title = props.title;
   const articles = props.articles;
   const trackUrl = props.trackUrl;
@@ -21,11 +21,7 @@ const Project = (props: any): JSX.Element => {
   return (
     <StyledProject>
       <ProjectDescription title={title}></ProjectDescription>
-      <ProjectList
-        projectNum={project_id}
-        articles={articles}
-        trackUrl={trackUrl}
-      ></ProjectList>
+      <ProjectList articles={articles} trackUrl={trackUrl}></ProjectList>
     </StyledProject>
   );
 };

@@ -1,22 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { spanProps } from '../interfaces';
 
-const StyledSpan = styled.span<any>`
-  position: ${props => props.positon || 'static'};
+const StyledSpan = styled.span<spanProps>`
+  position: ${props => props.position || 'static'};
   padding-left: ${props => props.paddingLeft};
   padding-right: ${props => props.paddingRight};
   padding-top: ${props => props.paddingTop};
   padding-bottom: ${props => props.paddingBottom};
+  color: ${props => props.color || 'black'};
   font-size: ${props => props.fontSize};
   line-height: ${props => props.lineHeight};
   letter-spacing: ${props => props.letterSpacing};
   margin-right: ${props => props.marginRight};
-  color: ${props => props.color || 'black'};
   width: ${props => props.width};
   height: ${props => props.height};
 `;
 
-const Span = ({ text, ...rest }: any): JSX.Element => {
+const Span = ({ text, ...rest }: spanProps & { text: string }): JSX.Element => {
   return <StyledSpan {...rest}>{text}</StyledSpan>;
 };
 

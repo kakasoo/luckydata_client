@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LoginContext } from '../../App';
 import setting from '../../config';
+import { modalProps } from '../interfaces';
 
 const ModalWrapper = styled.div`
   id: ${props => props.id};
@@ -45,16 +46,10 @@ const ModalInner = styled.div`
   padding: 40px 20px;
 `;
 
-type modalProps = {
-  className?: string;
-  visible?: boolean;
-  children?: JSX.Element;
-};
-
 const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
-  const [id, setID] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [id, setID] = useState('');
+  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('정보를 입력 후 로그인을 눌려주세요.');
   const [messageColor, setMEssageColor] = useState('red');
 
@@ -65,11 +60,14 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
     }
   }, [state]);
 
-  const changeID = (event: any) => setID(event.target.value);
-  const changePassword = (event: any) => setPassword(event.target.value);
+  const changeID = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setID(event.target.value);
+  const changePassword = (event: React.ChangeEvent<HTMLInputElement>) =>
+    setPassword(event.target.value);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const clickOutside = ({ target }: any) => {
+  const clickOutside = ({
+    target,
+  }: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (state && document.getElementById('modalBackground') === target) {
       onclick();
     }
@@ -111,7 +109,8 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
     }
   };
 
-  const isEnter = (event: any) => event.charCode === 13 && login();
+  const isEnter = (event: React.KeyboardEvent<HTMLInputElement>) =>
+    event.charCode === 13 && login();
   return (
     <ModalOverlay visible={visible}>
       <ModalWrapper

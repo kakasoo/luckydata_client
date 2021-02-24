@@ -7,7 +7,7 @@ const StyledProjectDescription = styled.div`
   min-width: 312px;
 `;
 
-const ProjectDescription = (props: any) => {
+const ProjectDescription = (props: { title: string }): JSX.Element => {
   const title = props.title;
   return (
     <StyledProjectDescription>
