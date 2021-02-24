@@ -7,14 +7,13 @@ import TrackList from '../templates/TrackList';
 import ArticleContents from '../templates/ArticleContents';
 
 const StyledTrack = styled.div`
-  position: absolute;
   width: 100%;
-  top: 60px;
 `;
 
 const TrackInnerWrapper = styled.div`
   width: 100%;
   max-width: 1240px;
+  min-height: 700px;
   margin: 0 auto;
 `;
 

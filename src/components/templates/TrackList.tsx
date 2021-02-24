@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import setting from '../../config';
 import { track } from '../interfaces';
+
 const StyledTrackList = styled.div`
   display: flex;
   justify-content: center;
