@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import setting from '../../config';
 import { track } from '../interfaces';
+import LoadingScreen from '../organisms/LoadingScreen';
+import NoData from '../organisms/NoData';
 
 const StyledTrackList = styled.div`
   display: flex;
@@ -37,7 +39,7 @@ const TrackCardTitle = styled.span`
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TrackList = ({ history, location, match }: any): JSX.Element => {
-  const [tracks, setTracks] = useState([]);
+  const [tracks, setTracks] = useState<[] | null>(null);
 
   useEffect(() => {
     const getTracks = async () => {
@@ -60,17 +62,26 @@ const TrackList = ({ history, location, match }: any): JSX.Element => {
 
   return (
     <StyledTrackList>
-      {tracks.length ? (
-        tracks.map((track: track, index) => (
-          <StyledOneTrack key={index}>
-            <Link to={`${match.url}/${track.ID}`} style={{ fontSize: '30px' }}>
-              <TrackCardImg src="/images/tracks.png"></TrackCardImg>
-              <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
-            </Link>
-          </StyledOneTrack>
-        ))
+      {tracks ? (
+        tracks.length ? (
+          tracks.map((track: track, index) => (
+            <StyledOneTrack key={index}>
+              <Link
+                to={`${match.url}/${track.ID}`}
+                style={{ fontSize: '30px' }}
+              >
+                <TrackCardImg src="/images/tracks.png"></TrackCardImg>
+                <TrackCardTitle>{track.DEPARTMENT}</TrackCardTitle>
+              </Link>
+            </StyledOneTrack>
+          ))
+        ) : (
+          <div style={{ width: '100%' }}>
+            <NoData></NoData>
+          </div>
+        )
       ) : (
-        <div style={{ fontSize: '20px' }}>트랙 목록을 조회하는 중입니다.</div>
+        <LoadingScreen></LoadingScreen>
       )}
     </StyledTrackList>
   );

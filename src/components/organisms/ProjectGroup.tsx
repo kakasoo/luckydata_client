@@ -4,6 +4,8 @@ import Span from '../atoms/Span';
 import Project from './Project';
 import setting from '../../config';
 import P from '../atoms/P';
+import LoadingScreen from './LoadingScreen';
+import NoData from './NoData';
 
 const StyledProjectGroup = styled.div`
   top: 119px;
@@ -11,7 +13,7 @@ const StyledProjectGroup = styled.div`
 `;
 
 const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<[] | null>(null);
 
   useEffect(() => {
     const getProjectsOfUser = async () => {
@@ -50,19 +52,21 @@ const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
         letterSpacing="-0.72pt"
       ></Span>
 
-      {projects.length ? (
-        projects.map((project: any, index: number) => (
-          <Project
-            key={index}
-            title={project.ptitle}
-            articles={project.child}
-            trackUrl={match.url}
-          ></Project>
-        ))
+      {projects ? (
+        projects.length ? (
+          projects.map((project: any, index: number) => (
+            <Project
+              key={index}
+              title={project.ptitle}
+              articles={project.child}
+              trackUrl={match.url}
+            ></Project>
+          ))
+        ) : (
+          <NoData></NoData>
+        )
       ) : (
-        <div>
-          <P fontSize="30px" text="프로젝트 목록을 불러옵니다."></P>
-        </div>
+        <LoadingScreen />
       )}
     </StyledProjectGroup>
   );
