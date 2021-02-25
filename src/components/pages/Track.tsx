@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ProjectBanner from '../organisms/ProjectBanner';
 import ProjectGroup from '../organisms/ProjectGroup';
 import TrackList from '../templates/TrackList';
-import ArticleContents from '../templates/ArticleContents';
+import ArticleContents from './ArticleContents';
 
 const StyledTrack = styled.div`
   width: 100%;
