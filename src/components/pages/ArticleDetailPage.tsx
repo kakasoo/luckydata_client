@@ -73,7 +73,11 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
         article.ID ? (
           <ArticlePage>
             <ArticleTitle>
-              <Span text={article.TITLE as string}></Span>
+              <Span
+                fontFamily="InkLipquid"
+                text={article.TITLE as string}
+                fontSize="50px"
+              ></Span>
               <P
                 margin="0px"
                 fontSize="14px"

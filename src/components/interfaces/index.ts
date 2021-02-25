@@ -57,6 +57,7 @@ export interface spanProps {
   top?: string;
   fontWeight?: string;
   marginBottom?: string;
+  fontFamily?: string;
 }
 
 export interface articleProps {
