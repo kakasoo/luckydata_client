@@ -6,17 +6,9 @@ import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';
 import NoData from '../organisms/NoData';
 import P from '../atoms/P';
-
-const getKoreanTime = (mysqlDateTime: any) => {
-  const koreanTime = new Date(mysqlDateTime);
-  return (
-    koreanTime.getFullYear() +
-    ' / ' +
-    (koreanTime.getMonth() - 0 + 1) +
-    ' / ' +
-    koreanTime.getDate()
-  );
-};
+import CodeBlock from '../molecules/CodeBlcok';
+import StickyMemo from '../organisms/StickyMemo';
+import { getKoreanTime } from '../../utils';
 
 const ArticlePage = styled.div``;
 
@@ -29,20 +21,25 @@ const ArticleTitle = styled.div`
   padding-bottom: 15px;
   border-bottom: 1px solid rgb(170, 170, 170);
 `;
-const ArticleContents = styled.div`
-  line-height: 2;
-  font-size: 16px;
-`;
 
-const MainSection = styled.div`
+const MainSection = styled.div``;
+
+const ArticleContents = styled.div`
   display: flex;
+  width: 100%;
 `;
 
 const VerticalLeftPage = styled.div`
+  width: 70%;
+  font-weight: 300;
+  font-size: 16px;
   margin-left: 10%;
+  line-height: 2;
 `;
+
 const VerticalRightPage = styled.div`
-  width: 30%;
+  height: 100%;
+  width: 100%;
 `;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -80,18 +77,24 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
               <P
                 margin="0px"
                 fontSize="14px"
+                fontWeight="300"
                 text={getKoreanTime(article.createdAt)}
               ></P>
             </ArticleTitle>
             <MainSection>
-              <VerticalLeftPage>
-                <ArticleContents>
+              <ArticleContents>
+                <VerticalLeftPage>
                   <ReactMarkdown
                     source={!article.CONTENTS ? '' : article.CONTENTS}
+                    renderers={{ code: CodeBlock }}
                   />
-                </ArticleContents>
-              </VerticalLeftPage>
-              <VerticalRightPage></VerticalRightPage>
+                </VerticalLeftPage>
+                <VerticalRightPage>
+                  <StickyMemo
+                    data={[article].map(({ CONTENTS, ...rest }) => rest)}
+                  ></StickyMemo>
+                </VerticalRightPage>
+              </ArticleContents>
             </MainSection>
           </ArticlePage>
         ) : (

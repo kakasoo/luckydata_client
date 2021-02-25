@@ -12,8 +12,8 @@ const MainWrapper = styled.div`
 const Home = (): JSX.Element => {
   return (
     <MainWrapper>
-      <Banner />
-      <About />
+      <Banner></Banner>
+      <About></About>
     </MainWrapper>
   );
 };
