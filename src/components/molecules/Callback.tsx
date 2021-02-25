@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import qs from 'qs';
 import setting from '../../config';
+import LoadingScreen from '../organisms/LoadingScreen';
 
-function Callback({ history, location }: any): JSX.Element {
+const Callback = ({ history, location }: any): JSX.Element => {
   useEffect(() => {
     async function getToken() {
       const { code } = qs.parse(location.search, {
@@ -27,7 +28,7 @@ function Callback({ history, location }: any): JSX.Element {
 
     getToken();
   }, [location, history]);
-  return <div>잠시만 기다려주세요</div>;
-}
+  return <LoadingScreen />;
+};
 
 export default Callback;
