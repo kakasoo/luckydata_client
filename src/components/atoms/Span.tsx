@@ -17,6 +17,8 @@ const StyledSpan = styled.span<spanProps>`
   height: ${props => props.height};
   left: ${props => props.left};
   top: ${props => props.top};
+  font-weight: ${props => props.fontWeight};
+  margin-bottom: ${props => props.marginBottom};
 `;
 
 const Span = ({ text, ...rest }: spanProps & { text: string }): JSX.Element => {

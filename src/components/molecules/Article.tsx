@@ -34,7 +34,7 @@ const Article = (props: articleProps): JSX.Element => {
           marginTop="0px"
         >
           <Span
-            text={`${index + 1}. ` + title}
+            text={`${index + 1 < 10 ? '0' + (index + 1) : index + 1}. ` + title}
             paddingLeft="20px"
             fontSize="19px"
             width="100%"

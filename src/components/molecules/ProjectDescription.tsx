@@ -12,13 +12,24 @@ const ProjectDescription = (props: { title: string }): JSX.Element => {
 
   return (
     <StyledProjectDescription>
+      <div
+        style={{
+          marginLeft: '18px',
+          background: 'black',
+          width: '36px',
+          height: '2px',
+          marginTop: '56px',
+        }}
+      />
       <P
-        paddingLeft="1.5%"
+        margin="0px"
+        paddingLeft="18px"
         fontSize="24px"
         lineHeight="32px"
         letterSpacing="-0.96pt"
         color="rgb(51,51,51)"
         text={title}
+        fontWeight="bold"
       ></P>
     </StyledProjectDescription>
   );

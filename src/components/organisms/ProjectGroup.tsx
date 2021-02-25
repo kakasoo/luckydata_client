@@ -39,35 +39,39 @@ const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
   return (
     <StyledProjectGroup>
       <Span
-        fontSize="18pt"
+        fontSize="18px"
+        fontWeight="bold"
         lineHeight="30px"
         text="PROJECT"
         letterSpacing="-0.72pt"
         marginRight="236px"
       ></Span>
       <Span
-        fontSize="18pt"
+        fontSize="18px"
+        fontWeight="bold"
         lineHeight="30pt"
         text="POST"
         letterSpacing="-0.72pt"
       ></Span>
 
-      {projects ? (
-        projects.length ? (
-          projects.map((project: any, index: number) => (
-            <Project
-              key={index}
-              title={project.ptitle}
-              articles={project.child}
-              trackUrl={match.url}
-            ></Project>
-          ))
+      <div style={{ marginTop: '24px' }}>
+        {projects ? (
+          projects.length ? (
+            projects.map((project: any, index: number) => (
+              <Project
+                key={index}
+                title={`${index + 1}. ` + project.ptitle}
+                articles={project.child}
+                trackUrl={match.url}
+              ></Project>
+            ))
+          ) : (
+            <NoData></NoData>
+          )
         ) : (
-          <NoData></NoData>
-        )
-      ) : (
-        <LoadingScreen />
-      )}
+          <LoadingScreen />
+        )}
+      </div>
     </StyledProjectGroup>
   );
 };

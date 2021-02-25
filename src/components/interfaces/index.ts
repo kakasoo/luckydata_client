@@ -28,13 +28,16 @@ export interface pProps {
   paddingRight?: string;
   paddingTop?: string;
   paddingBottom?: string;
+  marginTop?: string;
   color?: string;
   fontSize?: string;
   lineHeight?: string;
   letterSpacing?: string;
   marginRight?: string;
+  margin?: string;
   height?: string;
   width?: string;
+  fontWeight?: string;
 }
 
 export interface spanProps {
@@ -52,6 +55,8 @@ export interface spanProps {
   width?: string;
   left?: string;
   top?: string;
+  fontWeight?: string;
+  marginBottom?: string;
 }
 
 export interface articleProps {

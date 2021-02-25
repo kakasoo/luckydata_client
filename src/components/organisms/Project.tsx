@@ -7,6 +7,7 @@ import ProjectList from '../molecules/ProjectList';
 const StyledProject = styled.div`
   display: flex;
   border: 1px solid rgb(246, 246, 246);
+  min-height: 300px;
   border-radius: 10px;
   box-shadow: 1.2px 2.7px 8px 0px rgba(0, 0, 0, 0.08);
   margin-bottom: 20px;
