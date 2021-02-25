@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import setting from '../../config';
 import { track } from '../interfaces';
 import LoadingScreen from '../organisms/LoadingScreen';
@@ -13,6 +13,38 @@ const StyledTrackList = styled.div`
   margin: 30px auto;
 `;
 
+const tada = keyframes`
+  0% { 
+    transform: scale3d(1, 1, 1);
+  }
+  20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, 0deg);
+  }
+  30% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, 5deg);
+  }
+  40% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -5deg);
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 5deg);
+  }
+  60% {
+    transform: scale3d(1,1, 1.1, 1.1) rotate3d(0, 0, 1, -5deg);
+  }
+  70% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 5deg);
+  }
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -5deg);
+  }
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 5deg);
+  }
+  100% {
+     transform: scale3d(1, 1, 1);
+`;
+
 const StyledOneTrack = styled.div`
   width: 300px;
   height: 300px;
@@ -20,6 +52,13 @@ const StyledOneTrack = styled.div`
   overflow: hidden;
   -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.4);
   margin: 30px;
+
+  &:hover {
+    animation-name: ${tada};
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+  }
 `;
 
 const TrackCardImg = styled.img`
