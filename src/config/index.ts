@@ -20,7 +20,8 @@ const setting: {
   },
   production: {
     SERVER_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
-    FETCH_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
+    // FETCH_ADDRESS: process.env.REACT_APP_SERVER_ADDRESS,
+    FETCH_ADDRESS: '',
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_ROOT_ADDRESS,
   },
   test: {},
