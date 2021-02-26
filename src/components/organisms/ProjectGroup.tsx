@@ -6,35 +6,16 @@ import setting from '../../config';
 import P from '../atoms/P';
 import LoadingScreen from './LoadingScreen';
 import NoData from './NoData';
+import { fetchDataHook } from '../../utils';
 
 const StyledProjectGroup = styled.div`
   top: 119px;
   padding-top: 62px;
 `;
 
-const ProjectGroup = ({ history, location, match }: any): JSX.Element => {
-  const [projects, setProjects] = useState<[] | null>(null);
-
-  useEffect(() => {
-    const getProjectsOfUser = async () => {
-      const cookie = localStorage.getItem('token');
-      const TRACK_ID = match.params.id;
-
-      try {
-        const url = setting.FETCH_ADDRESS + `/api/user_tracks/${TRACK_ID}`;
-        const response = await fetch(url, {
-          headers: {
-            Authorization: cookie || '',
-          },
-        });
-        const body = await response.json();
-        setProjects(body.result);
-      } catch (error) {
-        throw new Error(error);
-      }
-    };
-    getProjectsOfUser();
-  }, [history, location]);
+const ProjectGroup = ({ match }: any): JSX.Element => {
+  const TRACK_ID = match.params.id;
+  const projects = fetchDataHook(`/api/user_tracks/${TRACK_ID}`);
 
   return (
     <StyledProjectGroup>
