@@ -34,7 +34,7 @@ export const fetchDataHook = (API_PATH: string) => {
         }
       };
       getData();
-    }, 1000);
+    }, 4000);
 
     return () => {
       clearInterval(interval_id);
@@ -42,4 +42,17 @@ export const fetchDataHook = (API_PATH: string) => {
   }, [data]);
 
   return data;
+};
+
+export const fetchPost = async (API_PATH: string, POST_DATA: any) => {
+  const cookie = localStorage.getItem('token');
+
+  await fetch(setting.FETCH_ADDRESS + API_PATH, {
+    method: 'POST',
+    headers: {
+      'content-Type': 'application/json',
+      authorization: cookie || '',
+    },
+    body: JSON.stringify(POST_DATA),
+  });
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Callback from '../molecules/Callback';
-import Edit from '../templates/Edit';
+import Edit from './Edit';
 import Home from './Home';
 import Track from './Track';
 

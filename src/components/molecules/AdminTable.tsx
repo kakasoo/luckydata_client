@@ -5,6 +5,7 @@ import setting from '../../config';
 
 const StyledTable = styled.table`
   width: 100%;
+  max-width: 100%;
   item-align: center;
   text-align: center;
 `;
@@ -12,8 +13,20 @@ const StyledTable = styled.table`
 const StyledTR = styled.tr``;
 
 const StyledTD = styled.td`
+  max-width: 350px;
   border: 1px solid black;
 `;
+
+const TDinnerDiv = styled.div`
+  width: 100%;
+  max-height: 100px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
 const StyledTH = styled.th`
   border: 1px solid red;
 `;
@@ -53,12 +66,14 @@ const Table = (props: tableProps): JSX.Element => {
         {data.map((el: any, index: number) => (
           <tr key={index}>
             {Object.values(data[index]).map((el: any, index: number) => (
-              <StyledTD key={index}>{el}</StyledTD>
+              <StyledTD key={index}>
+                <TDinnerDiv>{el}</TDinnerDiv>
+              </StyledTD>
             ))}
             <StyledTD>
               <button
                 style={{ width: '100%', height: '100%' }}
-                onClick={deleteData(`/api/tracks/${el.ID}`)}
+                onClick={deleteData(`/api/${props.dataName}/${el.ID}`)}
               >
                 삭제
               </button>

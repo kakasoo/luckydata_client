@@ -93,5 +93,6 @@ export interface track {
 }
 
 export interface tableProps {
+  dataName: string;
   data?: null | [];
 }
