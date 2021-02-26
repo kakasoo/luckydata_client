@@ -56,7 +56,6 @@ const StyledOneTrack = styled.div`
   &:hover {
     animation-name: ${tada};
     animation-duration: 1s;
-    animation-iteration-count: infinite;
     cursor: pointer;
   }
 `;

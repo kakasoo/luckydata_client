@@ -61,7 +61,16 @@ const Header = (): JSX.Element => {
       <HeaderButtonGroup>
         {isLogin ? (
           <Link to="/tracks">
-            <HeaderButton>TRACK</HeaderButton>
+            <HeaderButton
+              onClick={() => {
+                if (window.location.pathname === '/tracks') {
+                  return;
+                }
+                window.location.href = '/tracks';
+              }}
+            >
+              TRACK
+            </HeaderButton>
           </Link>
         ) : (
           <></>
