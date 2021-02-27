@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import setting from '../../config';
+import { fetchDataHook } from '../../utils';
 import { track } from '../interfaces';
 import LoadingScreen from '../organisms/LoadingScreen';
 import NoData from '../organisms/NoData';
@@ -76,28 +76,8 @@ const TrackCardTitle = styled.span`
 `;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TrackList = ({ history, location, match }: any): JSX.Element => {
-  const [tracks, setTracks] = useState<[] | null>(null);
-
-  useEffect(() => {
-    const getTracks = async () => {
-      const cookie = localStorage.getItem('token');
-      try {
-        const url = setting.FETCH_ADDRESS + '/api/tracks';
-        const response = await fetch(url, {
-          headers: {
-            Authorization: cookie || '',
-          },
-        });
-        const body = await response.json();
-        setTracks(body.result);
-      } catch (error) {
-        throw new Error(error);
-      }
-    };
-    getTracks();
-  }, [history, location]);
-
+const TrackList = ({ match }: any): JSX.Element => {
+  const tracks = fetchDataHook('/api/tracks', 60 * 60 * 1000);
   return (
     <StyledTrackList>
       {tracks ? (

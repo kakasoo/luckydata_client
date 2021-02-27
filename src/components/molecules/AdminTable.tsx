@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
 import { tableProps } from '../interfaces';
@@ -9,8 +10,6 @@ const StyledTable = styled.table`
   item-align: center;
   text-align: center;
 `;
-
-const StyledTR = styled.tr``;
 
 const StyledTD = styled.td`
   max-width: 350px;

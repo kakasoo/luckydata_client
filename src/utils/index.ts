@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useEffect, useState } from 'react';
 import setting from '../config';
 
@@ -12,11 +13,38 @@ export const getKoreanTime = (mysqlDateTime: any) => {
   );
 };
 
-export const fetchDataHook = (API_PATH: string) => {
+export const startInterval = (callback: () => void, ms: number) => {
+  callback();
+  return setInterval(callback, ms);
+};
+
+// export const checkIsAdmin = () => {
+//   const [isAdmin, setResult] = useState<number>(400);
+
+//   useEffect(() => {
+//     const getData = async () => {
+//       const cookie = localStorage.getItem('token');
+//       try {
+//         const url = setting.FETCH_ADDRESS + '/api/admins';
+//         const response = await fetch(url, {
+//           headers: {
+//             Authorization: cookie || '',
+//           },
+//         });
+//         setResult(response.status);
+//       } catch (error) {
+//         throw new Error(error);
+//       }
+//     };
+//     getData();
+//   }, []);
+// };
+
+export const fetchDataHook = (API_PATH: string, ms: number) => {
   const [data, setData] = useState<null | []>(null);
 
   useEffect(() => {
-    const interval_id = setInterval(() => {
+    const interval_id = startInterval(() => {
       const getData = async () => {
         const cookie = localStorage.getItem('token');
 
@@ -34,12 +62,12 @@ export const fetchDataHook = (API_PATH: string) => {
         }
       };
       getData();
-    }, 4000);
+    }, ms);
 
     return () => {
       clearInterval(interval_id);
     };
-  }, [data]);
+  }, []);
 
   return data;
 };
@@ -55,4 +83,9 @@ export const fetchPost = async (API_PATH: string, POST_DATA: any) => {
     },
     body: JSON.stringify(POST_DATA),
   });
+};
+
+export const YouAreNotAdmin = () => {
+  window.location.href = '/';
+  alert('You are not admin.');
 };

@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React from 'react';
 import styled from 'styled-components';
 import Span from '../atoms/Span';
 import Project from './Project';
-import setting from '../../config';
-import P from '../atoms/P';
 import LoadingScreen from './LoadingScreen';
 import NoData from './NoData';
 import { fetchDataHook } from '../../utils';
@@ -15,7 +14,7 @@ const StyledProjectGroup = styled.div`
 
 const ProjectGroup = ({ match }: any): JSX.Element => {
   const TRACK_ID = match.params.id;
-  const projects = fetchDataHook(`/api/user_tracks/${TRACK_ID}`);
+  const projects = fetchDataHook(`/api/user_tracks/${TRACK_ID}`, 100000);
 
   return (
     <StyledProjectGroup>
