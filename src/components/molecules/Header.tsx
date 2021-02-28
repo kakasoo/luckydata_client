@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Button from '../atoms/Button';
 import { LoginContext } from '../../App';
+import { initFetch } from '../../utils';
 
 const StyledHeader = styled.div`
   display: flex;
@@ -43,6 +44,10 @@ const HeaderButton = styled.button`
 const Header = (): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
   const isLogin = localStorage.getItem('token') ? true : false;
+  if (isLogin) {
+    initFetch();
+  }
+
   const onclickLoginButton = () => onclick(!state);
 
   const onclickLogoutButton = () => {
@@ -62,12 +67,12 @@ const Header = (): JSX.Element => {
         {isLogin ? (
           <Link to="/tracks">
             <HeaderButton
-              onClick={() => {
-                if (window.location.pathname === '/tracks') {
-                  return;
-                }
-                window.location.href = '/tracks';
-              }}
+            // onClick={() => {
+            //   if (window.location.pathname === '/tracks') {
+            //     return;
+            //   }
+            //   window.location.href = '/tracks';
+            // }}
             >
               TRACK
             </HeaderButton>

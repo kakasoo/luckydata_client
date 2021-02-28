@@ -18,28 +18,6 @@ export const startInterval = (callback: () => void, ms: number) => {
   return setInterval(callback, ms);
 };
 
-// export const checkIsAdmin = () => {
-//   const [isAdmin, setResult] = useState<number>(400);
-
-//   useEffect(() => {
-//     const getData = async () => {
-//       const cookie = localStorage.getItem('token');
-//       try {
-//         const url = setting.FETCH_ADDRESS + '/api/admins';
-//         const response = await fetch(url, {
-//           headers: {
-//             Authorization: cookie || '',
-//           },
-//         });
-//         setResult(response.status);
-//       } catch (error) {
-//         throw new Error(error);
-//       }
-//     };
-//     getData();
-//   }, []);
-// };
-
 export const fetchDataHook = (API_PATH: string, ms: number) => {
   const [data, setData] = useState<null | []>(null);
 
@@ -47,6 +25,10 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
     const interval_id = startInterval(() => {
       const getData = async () => {
         const cookie = localStorage.getItem('token');
+        const initData = localStorage.getItem(API_PATH);
+        if (initData) {
+          setData(JSON.parse(initData));
+        }
 
         try {
           const url = setting.FETCH_ADDRESS + API_PATH;
@@ -57,6 +39,9 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
           });
           const body = await response.json();
           setData(body.result);
+
+          const subData = JSON.stringify(body.result);
+          localStorage.setItem(API_PATH, subData);
         } catch (error) {
           throw new Error(error);
         }
@@ -88,4 +73,8 @@ export const fetchPost = async (API_PATH: string, POST_DATA: any) => {
 export const YouAreNotAdmin = () => {
   window.location.href = '/';
   alert('You are not admin.');
+};
+
+export const initFetch = async () => {
+  fetchDataHook('/api/tracks', 60 * 60 * 1000);
 };
