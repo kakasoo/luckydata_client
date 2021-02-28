@@ -36,11 +36,12 @@ const VerticalLeftPage = styled.div`
   font-size: 16px;
   margin-left: 10%;
   line-height: 2;
+  overflow: hidden;
 `;
 
 const VerticalRightPage = styled.div`
   height: 100%;
-  width: 100%;
+  width: 30%;
 `;
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
