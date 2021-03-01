@@ -77,7 +77,7 @@ const TrackCardTitle = styled.span`
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TrackList = ({ match }: any): JSX.Element => {
-  const tracks = fetchDataHook('/api/tracks', 60 * 60 * 1000);
+  const tracks = fetchDataHook('/api/tracks', 60 * 1000);
   return (
     <StyledTrackList>
       {tracks ? (

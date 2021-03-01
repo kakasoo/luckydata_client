@@ -52,10 +52,7 @@ const VerticalRightPage = styled.div`
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const ArticleDetailPage = ({ match }: any): JSX.Element => {
   const curArticle = match.params.article_id;
-  const article: any = fetchDataHook(
-    `/api/articles/${curArticle}`,
-    60 * 60 * 1000,
-  );
+  const article: any = fetchDataHook(`/api/articles/${curArticle}`, 60 * 1000);
 
   return (
     <>

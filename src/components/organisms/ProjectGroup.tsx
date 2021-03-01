@@ -14,7 +14,7 @@ const StyledProjectGroup = styled.div`
 
 const ProjectGroup = ({ match }: any): JSX.Element => {
   const TRACK_ID = match.params.id;
-  const projects = fetchDataHook(`/api/user_tracks/${TRACK_ID}`, 100000);
+  const projects = fetchDataHook(`/api/user_tracks/${TRACK_ID}`, 60 * 1000);
 
   return (
     <StyledProjectGroup>

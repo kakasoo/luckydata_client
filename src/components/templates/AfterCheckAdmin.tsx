@@ -23,11 +23,11 @@ const HrUnderTable = styled.hr`
 const StyledEdit = styled.div``;
 
 const AfterCheckAdmin = (): JSX.Element => {
-  const tracks = fetchDataHook('/api/tracks', 3000);
-  const projects = fetchDataHook('/api/projects', 3000);
-  const articles = fetchDataHook('/api/articles', 3000);
-  const admins = fetchDataHook('/api/admins', 3000);
-  const users = fetchDataHook('/api/users', 3000);
+  const tracks = fetchDataHook('/api/tracks', 1000);
+  const projects = fetchDataHook('/api/projects', 1000);
+  const articles = fetchDataHook('/api/articles', 1000);
+  const admins = fetchDataHook('/api/admins', 1000);
+  const users = fetchDataHook('/api/users', 1000);
   return (
     <StyledEdit>
       <EditContext>
