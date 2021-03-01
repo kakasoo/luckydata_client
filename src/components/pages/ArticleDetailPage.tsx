@@ -15,6 +15,7 @@ import {
 } from '../molecules/CodeBlock';
 import StickyMemo from '../organisms/StickyMemo';
 import { fetchDataHook, getKoreanTime } from '../../utils';
+import gfm from 'remark-gfm';
 
 const ArticlePage = styled.div``;
 
@@ -76,6 +77,7 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
               <ArticleContents>
                 <VerticalLeftPage>
                   <ReactMarkdown
+                    plugins={[gfm]}
                     source={!article.CONTENTS ? '' : article.CONTENTS}
                     renderers={{
                       code: CodeBlock,
