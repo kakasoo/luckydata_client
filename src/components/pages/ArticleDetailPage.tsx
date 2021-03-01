@@ -7,7 +7,12 @@ import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';
 import NoData from '../organisms/NoData';
 import P from '../atoms/P';
-import CodeBlock from '../molecules/CodeBlcok';
+import {
+  BlockQuoteBlock,
+  CodeBlock,
+  InlineCodeBlock,
+  TableCellBlock,
+} from '../molecules/CodeBlock';
 import StickyMemo from '../organisms/StickyMemo';
 import { fetchDataHook, getKoreanTime } from '../../utils';
 
@@ -75,7 +80,12 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
                 <VerticalLeftPage>
                   <ReactMarkdown
                     source={!article.CONTENTS ? '' : article.CONTENTS}
-                    renderers={{ code: CodeBlock }}
+                    renderers={{
+                      code: CodeBlock,
+                      tableCell: TableCellBlock,
+                      inlineCode: InlineCodeBlock,
+                      blockquote: BlockQuoteBlock,
+                    }}
                   />
                 </VerticalLeftPage>
                 <VerticalRightPage>
