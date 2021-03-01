@@ -19,9 +19,11 @@
     "gh-pages": "^3.1.0",
     "http-proxy-middleware": "^1.0.6",
     "https": "^1.0.0",
+    "markdown-it": "^12.0.4",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-markdown": "^5.0.3",
+    "react-markdown-editor-lite": "^1.2.4",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
     "react-syntax-highlighter": "^15.4.3",
@@ -59,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "@types/markdown-it": "^12.0.1",
     "@types/qs": "^6.9.5",
     "@types/react": "^16.14.2",
     "@types/react-syntax-highlighter": "^13.5.0",

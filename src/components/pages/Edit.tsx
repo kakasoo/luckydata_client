@@ -6,7 +6,7 @@ import AfterCheckAdmin from '../templates/AfterCheckAdmin';
 
 const Edit = (): JSX.Element => {
   const [isAdmin, setResult] = useState<number | null>(null);
-  // const isAdmin = null;
+
   useEffect(() => {
     const getData = async () => {
       const cookie = localStorage.getItem('token');
@@ -30,7 +30,9 @@ const Edit = (): JSX.Element => {
     <>
       {isAdmin ? (
         isAdmin === 200 ? (
-          <AfterCheckAdmin></AfterCheckAdmin>
+          <div>
+            <AfterCheckAdmin></AfterCheckAdmin>
+          </div>
         ) : (
           YouAreNotAdmin()
         )
