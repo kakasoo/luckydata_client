@@ -30,9 +30,7 @@ const Edit = (): JSX.Element => {
     <>
       {isAdmin ? (
         isAdmin === 200 ? (
-          <div>
-            <AfterCheckAdmin></AfterCheckAdmin>
-          </div>
+          <AfterCheckAdmin></AfterCheckAdmin>
         ) : (
           YouAreNotAdmin()
         )
