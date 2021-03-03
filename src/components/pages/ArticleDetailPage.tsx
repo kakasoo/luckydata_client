@@ -3,6 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+
 import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';
 import NoData from '../organisms/NoData';
@@ -21,9 +22,7 @@ const ArticlePage = styled.div``;
 
 const ArticleTitle = styled.div`
   margin-left: 10%;
-
   margin-top: 40px;
-  font-size: 40px;
   font-weight: 700;
   padding-bottom: 15px;
   border-bottom: 1px solid rgb(170, 170, 170);
@@ -61,11 +60,7 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
         article.ID ? (
           <ArticlePage>
             <ArticleTitle>
-              <Span
-                fontFamily="InkLipquid"
-                text={article.TITLE as string}
-                fontSize="50px"
-              ></Span>
+              <Span text={article.TITLE as string} fontSize="2.7rem"></Span>
               <P
                 margin="0px"
                 fontSize="14px"
@@ -79,7 +74,16 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
                   <ReactMarkdown
                     plugins={[gfm]}
                     source={!article.CONTENTS ? '' : article.CONTENTS}
+                    skipHtml={false}
                     renderers={{
+                      link: props => (
+                        <a
+                          href={props.href}
+                          style={{ color: 'rgb(12, 166, 120)' }}
+                        >
+                          {props.children}
+                        </a>
+                      ),
                       code: CodeBlock,
                       tableCell: TableCellBlock,
                       inlineCode: InlineCodeBlock,

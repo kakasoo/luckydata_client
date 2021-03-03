@@ -8,7 +8,7 @@ import MarkdownEditor from '../templates/MarkdownEditor';
 
 const EditContext = styled.div`
   width: 100%;
-  max-width: 1240px;
+  max-width: 1460px;
   margin: 50px auto;
 `;
 

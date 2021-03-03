@@ -1,27 +1,37 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Span from '../atoms/Span';
 
 export const CodeBlock = ({ language, value }: any) => {
   return (
-    <SyntaxHighlighter language={language} style={tomorrow}>
+    <SyntaxHighlighter language={language} style={prism}>
       {value}
     </SyntaxHighlighter>
   );
 };
 
 export const InlineCodeBlock = (props: any) => {
-  return <Span text={props.value} backgroundColor="#ff0"></Span>;
+  return (
+    <Span
+      text={props.value}
+      backgroundColor="rgba(135,131,120,0.15)"
+      color="#EB5757"
+    ></Span>
+  );
 };
 
 export const BlockQuoteBlock = (props: any) => {
   return (
     <div
       style={{
-        borderLeft: '10px solid #aaa',
-        paddingLeft: '10px',
-        margin: '5px',
+        fontSize: '1.15em',
+        whiteSpace: 'pre-wrap',
+        wordBreak: 'break-word',
+        borderLeft: '3px solid currentcolor',
+        caretColor: 'rgb(55, 53, 47)',
+        paddingLeft: '0.9em',
+        paddingRight: '0.9em',
       }}
     >
       {props.children}
@@ -32,16 +42,13 @@ export const BlockQuoteBlock = (props: any) => {
 export const TableCellBlock = (props: any) => {
   const style: any = {
     textAlign: props.align ? props.align : 'center',
-    padding: '5px',
   };
 
   if (props.isHeader) {
-    style.background = '#ff0';
+    style.background = 'rgba(135,131,120,0.15)';
     style.border = '1px solid #ccc';
-    style.borderLeft = '0px';
-    style.borderRight = '0px';
   } else {
-    style.borderBottom = '1px solid #eee';
+    style.borderBottom = '1px solid #ccc';
   }
 
   return <td style={style}>{props.children}</td>;

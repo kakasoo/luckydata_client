@@ -26,6 +26,7 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
       const getData = async () => {
         const cookie = localStorage.getItem('token');
         const initData = localStorage.getItem(API_PATH);
+
         if (initData) {
           setData(JSON.parse(initData));
         }
@@ -54,6 +55,7 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
     };
   }, []);
 
+  console.log('data : ', data);
   return data;
 };
 
