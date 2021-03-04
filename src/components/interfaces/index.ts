@@ -107,6 +107,10 @@ export interface divProps {
   padding?: string;
   backgroundImage?: string;
   marginTop?: string;
+  opacity?: string;
+  transform?: string;
+  alignItems?: string;
+  textAlign?: string;
 }
 
 export interface articleProps {

@@ -38,6 +38,10 @@ const StyledDiv = styled.div<divProps>`
   padding: ${props => props.padding};
   background-image: ${props => props.backgroundImage};
   margin-top: ${props => props.marginTop};
+  opacity: ${props => props.opacity};
+  transform: ${props => props.transform};
+  align-items: ${props => props.alignItems};
+  text-align: ${props => props.textAlign};
 `;
 
 const Div = ({

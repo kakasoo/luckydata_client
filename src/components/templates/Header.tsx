@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import Button from '../atoms/Button';
 import { LoginContext } from '../../App';
 import { initFetch } from '../../utils';
-import HeaderWrapper from './HeaderWrapper';
-import HeaderLogoButton from './HeaderLogoButton';
-import HeaderButtonGroup from './HeaderButtonGroup';
+import HeaderWrapper from '../molecules/HeaderWrapper';
+import HeaderLogoButton from '../molecules/HeaderLogoButton';
+import HeaderButtonGroup from '../molecules/HeaderButtonGroup';
 
 // const HeaderButton = styled.button`
 //   color: #333333;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import Header from './components/molecules/Header';
+import Header from './components/templates/Header';
 import Modal from './components/organisms/Modal';
 import LoginButtonGroup from './components/molecules/LoginButtonGroup';
 import Main from './components/pages/Main';
