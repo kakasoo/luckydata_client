@@ -1,21 +1,14 @@
 import React from 'react';
 import Article from './Article';
-import Styled from 'styled-components';
 import { article, projectListProps } from '../interfaces';
-
-const StyledProjectList = Styled.div`
-  width:74.8%;
-  overflow:hidden;
-  padding-top:16px;
-  padding-bottom:20px;
-  `;
+import Div from '../atoms/StyledDiv';
 
 const ProjectList = (props: projectListProps): JSX.Element => {
   const articles = props.articles;
   const trackUrl = props.trackUrl;
 
   return (
-    <StyledProjectList>
+    <Div width="74.8%" overflow="hidden" paddingTop="16px" paddingBottom="20px">
       {articles?.map((article: article, index: number) =>
         article.aid ? (
           <Article
@@ -26,10 +19,10 @@ const ProjectList = (props: projectListProps): JSX.Element => {
             trackUrl={trackUrl}
           ></Article>
         ) : (
-          <div key={index}></div>
+          <></>
         ),
       )}
-    </StyledProjectList>
+    </Div>
   );
 };
 

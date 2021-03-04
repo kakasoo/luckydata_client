@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import P from '../atoms/P';
+import ProjectTitleDecoration from './ProjectTitleDecoration';
 
 const StyledProjectDescription = styled.div`
   width: 25.2%;
@@ -12,15 +13,7 @@ const ProjectDescription = (props: { title: string }): JSX.Element => {
 
   return (
     <StyledProjectDescription>
-      <div
-        style={{
-          marginLeft: '18px',
-          background: 'black',
-          width: '36px',
-          height: '2px',
-          marginTop: '56px',
-        }}
-      />
+      <ProjectTitleDecoration />
       <P
         margin="0px"
         paddingLeft="18px"
