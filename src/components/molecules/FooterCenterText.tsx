@@ -1,11 +1,11 @@
 import Div from '../atoms/StyledDiv';
 
-const FooterCenterDecoration = (props: any): JSX.Element => {
+const FooterCenterText = (props: any): JSX.Element => {
   return (
     <Div
       width="86px"
       height="3px"
-      background="linear-gradient(to right, #3fbbfe, #a541ff)"
+      backgroundColor="linear-gradient(to right, #3fbbfe, #a541ff)"
       marginBottom="9px"
     >
       {props.children}
@@ -13,4 +13,4 @@ const FooterCenterDecoration = (props: any): JSX.Element => {
   );
 };
 
-export default FooterCenterDecoration;
+export default FooterCenterText;

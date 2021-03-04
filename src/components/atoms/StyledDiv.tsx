@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { divProps } from '../interfaces';
 
-const StyledDiv = styled.span<divProps>`
+const StyledDiv = styled.div<divProps>`
   position: ${props => props.position || 'static'};
   padding-left: ${props => props.paddingLeft};
   padding-right: ${props => props.paddingRight};
@@ -32,12 +32,15 @@ const StyledDiv = styled.span<divProps>`
   display: ${props => props.display};
   justify-content: ${props => props.justifyContent};
   border: ${props => props.border};
+  background: ${props => props.background};
 `;
 
 const Div = ({
   children,
   ...rest
-}: divProps & { children?: JSX.Element | JSX.Element[] }): JSX.Element => {
+}: divProps & {
+  children?: JSX.Element | JSX.Element[] | string;
+}): JSX.Element => {
   return <StyledDiv {...rest}>{children}</StyledDiv>;
 };
 

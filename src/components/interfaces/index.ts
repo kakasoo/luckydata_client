@@ -16,10 +16,15 @@ export interface ButtonProps {
 }
 
 export interface imgProps {
+  display?: string;
+  marginLeft?: string;
+  marginRight?: string;
+  width?: string;
   src: string;
-  overflow: string;
-  height: string;
-  marginTop: string;
+  overflow?: string;
+  height?: string;
+  marginTop?: string;
+  alt?: string;
 }
 
 export interface pProps {
@@ -80,6 +85,7 @@ export interface divProps {
   marginBottom?: string;
   fontFamily?: string;
   backgroundColor?: string;
+  background?: string;
   overflow?: string;
   borderRadius?: string;
   whiteSpace?: string;
