@@ -1,9 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import Span from '../atoms/Span';
 import TextAndInput from '../molecules/TextAndInput';
-import { StyledForm } from '../atoms/StyledDiv';
 import { fetchPost } from '../../utils';
+import EditForm from '../molecules/EditForm';
+import setting from '../../config';
 
 const UserEditForm = (): JSX.Element => {
   const addTrack = async () => {
@@ -17,7 +17,7 @@ const UserEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost('/api/users', {
+    fetchPost(setting.SERVER_ADDRESS + '/api/users', {
       USER_ID: U_USER_ID?.value,
       PASSWORD: U_PASSWORD?.value,
       MAJOR: MAJOR?.value,
@@ -27,7 +27,7 @@ const UserEditForm = (): JSX.Element => {
   };
 
   return (
-    <StyledForm>
+    <EditForm>
       <TextAndInput name="U_USER_ID"></TextAndInput>
       <TextAndInput name="U_PASSWORD"></TextAndInput>
       <TextAndInput name="MAJOR"></TextAndInput>
@@ -36,7 +36,7 @@ const UserEditForm = (): JSX.Element => {
       <button style={{ height: '30px' }} onClick={addTrack}>
         <Span text="생성"></Span>
       </button>
-    </StyledForm>
+    </EditForm>
   );
 };
 

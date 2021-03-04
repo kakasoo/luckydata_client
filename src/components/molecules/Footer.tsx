@@ -1,18 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
-
-const FooterWrapper = styled.div`
-  background-color: black;
-  z-index: 2;
-`;
-
-const FooterCenterWrapper = styled.div`
-  max-width: 610px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 40px;
-  padding-bottom: 40px;
-`;
+import FooterCenterWrapper from './FooterCenterWrapper';
+import FooterWrapper from './FooterWrapper';
 
 const FooterCenterDecoration = styled.div`
   width: 86px;
@@ -57,17 +46,18 @@ const Footer = (): JSX.Element => {
   return (
     <FooterWrapper>
       <FooterCenterWrapper>
-        <FooterCenterDecoration></FooterCenterDecoration>
-        <FooterCenterTextWrapper>
-          <FooterCenterText1>동아리 문의 및 지원 이메일</FooterCenterText1>
-          <FooterCenterText1>leeshble@gmail.com</FooterCenterText1>
-          <FooterCenterText2>운수데통 동아리</FooterCenterText2>
-          <FooterCenterText3>010-2610-9480 회장 이상현</FooterCenterText3>
-        </FooterCenterTextWrapper>
-        <FooterCenterLogo
-          src="/images/logo_gray.png"
-          alt="logo"
-        ></FooterCenterLogo>
+        <FooterCenterDecoration>
+          <FooterCenterTextWrapper>
+            <FooterCenterText1>동아리 문의 및 지원 이메일</FooterCenterText1>
+            <FooterCenterText1>leeshble@gmail.com</FooterCenterText1>
+            <FooterCenterText2>운수데통 동아리</FooterCenterText2>
+            <FooterCenterText3>010-2610-9480 회장 이상현</FooterCenterText3>
+          </FooterCenterTextWrapper>
+          <FooterCenterLogo
+            src="/images/logo_gray.png"
+            alt="logo"
+          ></FooterCenterLogo>
+        </FooterCenterDecoration>
       </FooterCenterWrapper>
     </FooterWrapper>
   );

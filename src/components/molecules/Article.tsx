@@ -1,18 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Button from '../atoms/Button';
 import Span from '../atoms/Span';
+import Div from '../atoms/StyledDiv';
 import { articleProps } from '../interfaces';
-
-const StyledArticle = styled.div`
-  overflow: hidden;
-  margin-right: 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-  background-color: rgb(241, 240, 240);
-  text-align: 'left';
-`;
 
 const Article = (props: articleProps): JSX.Element => {
   const index = props.index;
@@ -21,7 +12,13 @@ const Article = (props: articleProps): JSX.Element => {
   const trackUrl = props.trackUrl;
 
   return (
-    <StyledArticle>
+    <Div
+      overflow="hidden"
+      marginRight="20px"
+      borderRadius="5px"
+      marginBottom="20px"
+      backgroundColor="rgb(241,240,240)"
+    >
       <Link
         to={`${trackUrl}/articles/${articleID}`}
         style={{ fontSize: '30px' }}
@@ -41,7 +38,7 @@ const Article = (props: articleProps): JSX.Element => {
           ></Span>
         </Button>
       </Link>
-    </StyledArticle>
+    </Div>
   );
 };
 

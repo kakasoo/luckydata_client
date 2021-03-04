@@ -2,7 +2,9 @@ import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Span from '../atoms/Span';
+import Div from '../atoms/StyledDiv';
 
+// ```로 만든 코드 블럭
 export const CodeBlock = ({ language, value }: any) => {
   return (
     <SyntaxHighlighter language={language} style={prism}>
@@ -11,6 +13,7 @@ export const CodeBlock = ({ language, value }: any) => {
   );
 };
 
+// ``를 이용해 강조한 구문
 export const InlineCodeBlock = (props: any) => {
   return (
     <Span
@@ -21,21 +24,20 @@ export const InlineCodeBlock = (props: any) => {
   );
 };
 
+// >로 만든 인용구문
 export const BlockQuoteBlock = (props: any) => {
   return (
-    <div
-      style={{
-        fontSize: '1.15em',
-        whiteSpace: 'pre-wrap',
-        wordBreak: 'break-word',
-        borderLeft: '3px solid currentcolor',
-        caretColor: 'rgb(55, 53, 47)',
-        paddingLeft: '0.9em',
-        paddingRight: '0.9em',
-      }}
+    <Div
+      fontSize="1.15em"
+      whiteSpace="pre-wrap"
+      wordBreak="break-word"
+      borderLeft="3px solid currentcolor"
+      caretColor="rgb(55, 53, 47)"
+      paddingLeft="0.9em"
+      paddingRight="0.9em"
     >
       {props.children}
-    </div>
+    </Div>
   );
 };
 

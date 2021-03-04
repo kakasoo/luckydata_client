@@ -13,7 +13,7 @@ import {
   CodeBlock,
   InlineCodeBlock,
   TableCellBlock,
-} from '../molecules/CodeBlock';
+} from '../molecules/Renderers';
 import StickyMemo from '../organisms/StickyMemo';
 import { fetchDataHook, getKoreanTime } from '../../utils';
 import gfm from 'remark-gfm';

@@ -61,6 +61,39 @@ export interface spanProps {
   backgroundColor?: string;
 }
 
+export interface divProps {
+  position?: string;
+  paddingLeft?: string;
+  paddingRight?: string;
+  paddingTop?: string;
+  paddingBottom?: string;
+  color?: string;
+  fontSize?: string;
+  lineHeight?: string;
+  letterSpacing?: string;
+  marginRight?: string;
+  height?: string;
+  width?: string;
+  left?: string;
+  top?: string;
+  fontWeight?: string;
+  marginBottom?: string;
+  fontFamily?: string;
+  backgroundColor?: string;
+  overflow?: string;
+  borderRadius?: string;
+  whiteSpace?: string;
+  wordBreak?: string;
+  borderLeft?: string;
+  caretColor?: string;
+  zIndex?: string;
+  maxWidth?: string;
+  marginLeft?: string;
+  display?: string;
+  justifyContent?: string;
+  border?: string;
+}
+
 export interface articleProps {
   title: string;
   index: number;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Callback from '../molecules/Callback';
+import Callback from './Callback';
 import editorPage from './Editor';
 import Edit from './Edit';
 import Home from './Home';

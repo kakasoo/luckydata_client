@@ -1,10 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import Span from '../atoms/Span';
 import setting from '../../config';
 import TextAndInput from '../molecules/TextAndInput';
-import { StyledForm } from '../atoms/StyledDiv';
 import { fetchPost } from '../../utils';
+import EditForm from '../molecules/EditForm';
 
 const TrackEditForm = (): JSX.Element => {
   const addTrack = async () => {
@@ -15,20 +14,20 @@ const TrackEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost('/api/tracks', {
+    fetchPost(setting.SERVER_ADDRESS + '/api/tracks', {
       DEPARTMENT: DEPARTMENT.value,
       ORDER: DEPARTMENT_ORDER?.value || 0,
     });
   };
 
   return (
-    <StyledForm>
+    <EditForm>
       <TextAndInput name="DEPARTMENT"></TextAndInput>
       <TextAndInput name="T_ORDER"></TextAndInput>
       <button style={{ height: '30px' }} onClick={addTrack}>
         <Span text="생성"></Span>
       </button>
-    </StyledForm>
+    </EditForm>
   );
 };
 
