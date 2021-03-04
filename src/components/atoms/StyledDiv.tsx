@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { divProps } from '../interfaces';
 
 const StyledDiv = styled.div<divProps>`
+  id: ${props => props.id};
   position: ${props => props.position || 'static'};
   padding-left: ${props => props.paddingLeft};
   padding-right: ${props => props.paddingRight};
@@ -42,15 +43,23 @@ const StyledDiv = styled.div<divProps>`
   transform: ${props => props.transform};
   align-items: ${props => props.alignItems};
   text-align: ${props => props.textAlign};
+  box-sizing: ${props => props.boxSizing};
+  right: ${props => props.right};
+  bottom: ${props => props.bottom};
 `;
 
 const Div = ({
   children,
+  onclick,
   ...rest
 }: divProps & {
   children?: JSX.Element | JSX.Element[] | string;
 }): JSX.Element => {
-  return <StyledDiv {...rest}>{children}</StyledDiv>;
+  return (
+    <StyledDiv onClick={onclick} {...rest}>
+      {children}
+    </StyledDiv>
+  );
 };
 
 export default Div;

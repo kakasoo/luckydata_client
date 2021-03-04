@@ -71,6 +71,7 @@ export interface spanProps {
 }
 
 export interface divProps {
+  id?: string;
   position?: string;
   paddingLeft?: string;
   paddingRight?: string;
@@ -111,6 +112,10 @@ export interface divProps {
   transform?: string;
   alignItems?: string;
   textAlign?: string;
+  boxSizing?: string;
+  right?: string;
+  bottom?: string;
+  onclick?: () => any;
 }
 
 export interface articleProps {

@@ -1,24 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
 import Button from '../atoms/Button';
 import { LoginContext } from '../../App';
 import { initFetch } from '../../utils';
-import HeaderWrapper from '../molecules/HeaderWrapper';
-import HeaderLogoButton from '../molecules/HeaderLogoButton';
-import HeaderButtonGroup from '../molecules/HeaderButtonGroup';
-
-// const HeaderButton = styled.button`
-//   color: #333333;
-//   border: 0;
-//   outline: none;
-//   background-color: rgba(0, 0, 0, 0);
-//   font-size: 12pt;
-//   margin-right: 50px;
-//   &: hover {
-//     cursor: pointer;
-//   }
-// `;
+import HeaderWrapper from '../molecules/Header/HeaderWrapper';
+import HeaderLogoButton from '../molecules/Header/HeaderLogoButton';
+import HeaderButtonGroup from '../molecules/Header/HeaderButtonGroup';
 
 const Header = (): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);

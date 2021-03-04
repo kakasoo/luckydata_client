@@ -1,12 +1,12 @@
 import React from 'react';
-import BackgroundLoadingScreen from '../molecules/BackgroundLoadingScreen';
-import LoadingContents from '../molecules/LodingContents';
+import LoadingBackgroundScreen from '../molecules/Loading/LoadingBackgroundScreen';
+import LoadingContents from '../molecules/Loading/LoadingContents';
 
 const LoadingScreen = (): JSX.Element => {
   return (
-    <BackgroundLoadingScreen>
+    <LoadingBackgroundScreen>
       <LoadingContents>loading...</LoadingContents>
-    </BackgroundLoadingScreen>
+    </LoadingBackgroundScreen>
   );
 };
 

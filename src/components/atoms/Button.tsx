@@ -16,8 +16,8 @@ const StyledButton = styled.button<ButtonProps>`
   line-height: ${props => props.lineHeight || '1'};
   background: ${props => props.background || 'transparent'};
   border-radius: ${props => props.borderRadius || '0%'};
-  margin-top: ${props => props.marginTop || '20px'};
-  margin-bottom: ${props => props.marginBottom || '20px'};
+  margin-top: ${props => props.marginTop};
+  margin-bottom: ${props => props.marginBottom};
   margin-right: ${props => props.marginRight};
   align-items: center;
   justify-content: ${props => props.justifyContent || 'center'};

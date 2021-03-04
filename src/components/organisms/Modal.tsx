@@ -3,21 +3,7 @@ import styled from 'styled-components';
 import { LoginContext } from '../../App';
 import setting from '../../config';
 import { modalProps } from '../interfaces';
-
-const ModalWrapper = styled.div`
-  id: ${props => props.id};
-  box-sizing: border-box;
-  display: ${visible => (visible ? 'block' : 'none')};
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1000;
-  overflow: auto;
-  outline: 0;
-  onclick: ${props => props.onclick};
-`;
+import ModalWrapper from '../molecules/ModalWrapper';
 
 const ModalOverlay = styled.div`
   box-sizing: border-box;
@@ -115,11 +101,10 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
   return (
     <ModalOverlay visible={visible}>
       <ModalWrapper
-        id={'modalBackground'}
         className={className}
         tabIndex={-1}
         visible={visible}
-        onClick={clickOutside}
+        onclick={clickOutside}
       >
         <ModalInner tabIndex={0} className="modalInner">
           <h1 style={{ color: 'black', margin: '0px', marginBottom: '5px' }}>

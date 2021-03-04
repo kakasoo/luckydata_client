@@ -1,4 +1,4 @@
-import Div from '../atoms/StyledDiv';
+import Div from '../../atoms/StyledDiv';
 
 const FooterCenterTextWrapper = (props: any): JSX.Element => {
   return <Div display="flex">{props.children}</Div>;

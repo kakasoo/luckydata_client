@@ -1,4 +1,4 @@
-import Div from '../atoms/StyledDiv';
+import Div from '../../atoms/StyledDiv';
 
 const FooterCenterWrapper = (props: any): JSX.Element => {
   return (
