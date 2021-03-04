@@ -4,6 +4,7 @@ import TextAndInput from '../molecules/TextAndInput';
 import { fetchPost } from '../../utils';
 import EditForm from '../molecules/EditForm';
 import setting from '../../config';
+import Button from '../atoms/Button';
 
 const UserEditForm = (): JSX.Element => {
   const addTrack = async () => {
@@ -33,9 +34,9 @@ const UserEditForm = (): JSX.Element => {
       <TextAndInput name="MAJOR"></TextAndInput>
       <TextAndInput name="DOUBLE_MAJOR"></TextAndInput>
       <TextAndInput name="STUDENT_ID"></TextAndInput>
-      <button style={{ height: '30px' }} onClick={addTrack}>
+      <Button height="30px" onclick={addTrack}>
         <Span text="생성"></Span>
-      </button>
+      </Button>
     </EditForm>
   );
 };
