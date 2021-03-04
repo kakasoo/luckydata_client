@@ -18,11 +18,15 @@ const StyledButton = styled.button<ButtonProps>`
   border-radius: ${props => props.borderRadius || '0%'};
   margin-top: ${props => props.marginTop || '20px'};
   margin-bottom: ${props => props.marginBottom || '20px'};
+  margin-right: ${props => props.marginRight};
   align-items: center;
   justify-content: ${props => props.justifyContent || 'center'};
   outline: none;
   onclick: ${props => props.onclick};
   text-align: ${props => props.textAlign || 'center'};
+  border: ${props => props.border || 'none'};
+  outline: ${props => props.outline || 'none'};
+  background-color: ${props => props.backgroundColor};
 `;
 
 const Button = ({ onclick, children, ...rest }: ButtonProps): JSX.Element => {

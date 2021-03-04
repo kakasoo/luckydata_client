@@ -33,6 +33,11 @@ const StyledDiv = styled.div<divProps>`
   justify-content: ${props => props.justifyContent};
   border: ${props => props.border};
   background: ${props => props.background};
+  border-bottom: ${props => props.borderBottom};
+  margin: ${props => props.margin};
+  padding: ${props => props.padding};
+  background-image: ${props => props.backgroundImage};
+  margin-top: ${props => props.marginTop};
 `;
 
 const Div = ({

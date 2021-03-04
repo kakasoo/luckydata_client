@@ -5,7 +5,7 @@ import Modal from './components/organisms/Modal';
 import LoginButtonGroup from './components/molecules/LoginButtonGroup';
 import Main from './components/pages/Main';
 import Store from './components/unreuse/Store';
-import Footer from './components/molecules/Footer';
+import Footer from './components/templates/Footer';
 
 declare module 'react' {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {

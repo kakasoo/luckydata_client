@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Img from '../atoms/Img';
 import Div from '../atoms/StyledDiv';
-import FooterCenterDecoration from './FooterCenterDecoration';
-import FooterCenterTextWrapper from './FooterCenterTextWrapper';
-import FooterCenterWrapper from './FooterCenterWrapper';
-import FooterWrapper from './FooterWrapper';
+import FooterCenterDecoration from '../molecules/FooterCenterDecoration';
+import FooterCenterTextWrapper from '../molecules/FooterCenterTextWrapper';
+import FooterCenterWrapper from '../molecules/FooterCenterWrapper';
+import FooterWrapper from '../molecules/FooterWrapper';
 
 const Footer = (): JSX.Element => {
   return (

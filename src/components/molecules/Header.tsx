@@ -4,42 +4,21 @@ import styled from 'styled-components';
 import Button from '../atoms/Button';
 import { LoginContext } from '../../App';
 import { initFetch } from '../../utils';
+import HeaderWrapper from './HeaderWrapper';
+import HeaderLogoButton from './HeaderLogoButton';
+import HeaderButtonGroup from './HeaderButtonGroup';
 
-const StyledHeader = styled.div`
-  display: flex;
-  height: 60px;
-  max-width: 1240px;
-  background: ${props => props.color};
-  border-bottom: 2px solid #eeeeee;
-  justify-content: space-between;
-  margin: 0 auto;
-  padding: 0 8px;
-  z-index: 10;
-`;
-
-const HeaderLogoButton = styled.div`
-  height: 40px;
-  width: 192px;
-  background-image: url('/images/header_logo_black.png');
-  margin-top: 10px;
-`;
-
-const HeaderButtonGroup = styled.div`
-  display: float;
-  padding-top: 13px;
-`;
-
-const HeaderButton = styled.button`
-  color: #333333;
-  border: 0;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0);
-  font-size: 12pt;
-  margin-right: 50px;
-  &: hover {
-    cursor: pointer;
-  }
-`;
+// const HeaderButton = styled.button`
+//   color: #333333;
+//   border: 0;
+//   outline: none;
+//   background-color: rgba(0, 0, 0, 0);
+//   font-size: 12pt;
+//   margin-right: 50px;
+//   &: hover {
+//     cursor: pointer;
+//   }
+// `;
 
 const Header = (): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
@@ -59,14 +38,23 @@ const Header = (): JSX.Element => {
   const loginOrOutclick = isLogin ? onclickLogoutButton : onclickLoginButton;
 
   return (
-    <StyledHeader color="white">
+    <HeaderWrapper>
       <Link to="/">
         <HeaderLogoButton />
       </Link>
       <HeaderButtonGroup>
         {isLogin ? (
           <Link to="/tracks">
-            <HeaderButton>TRACK</HeaderButton>
+            <Button
+              color="#333333"
+              border="0"
+              outline="none"
+              backgroundColor="rgba(0,0,0,0)"
+              fontSize="12pt"
+              marginRight="50px"
+            >
+              TRACK
+            </Button>
           </Link>
         ) : (
           <></>
@@ -85,7 +73,7 @@ const Header = (): JSX.Element => {
           {buttonText}
         </Button>
       </HeaderButtonGroup>
-    </StyledHeader>
+    </HeaderWrapper>
   );
 };
 

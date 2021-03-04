@@ -13,6 +13,10 @@ export interface ButtonProps {
   justifyContent?: string;
   background?: string;
   textAlign?: string;
+  border?: string;
+  outline?: string;
+  marginRight?: string;
+  backgroundColor?: string;
 }
 
 export interface imgProps {
@@ -98,6 +102,11 @@ export interface divProps {
   display?: string;
   justifyContent?: string;
   border?: string;
+  borderBottom?: string;
+  margin?: string;
+  padding?: string;
+  backgroundImage?: string;
+  marginTop?: string;
 }
 
 export interface articleProps {
