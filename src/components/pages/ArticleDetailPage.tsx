@@ -3,7 +3,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
-import Emoji from 'react-emoji-render';
 
 import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';

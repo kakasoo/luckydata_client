@@ -9,7 +9,7 @@ const HeaderWrapper = (props: any): JSX.Element => {
       background="white"
       borderBottom="2px solid #eeeeee"
       margin="0 auto"
-      padding="0 8px"
+      padding="0 8px 8px 8px"
       zIndex="10"
       justifyContent="space-between"
     >
