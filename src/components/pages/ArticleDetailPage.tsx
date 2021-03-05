@@ -3,6 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import ReactMarkdown from 'react-markdown';
+import Emoji from 'react-emoji-render';
 
 import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';
@@ -12,7 +13,9 @@ import {
   BlockQuoteBlock,
   CodeBlock,
   InlineCodeBlock,
+  LinkBlock,
   TableCellBlock,
+  TextBlock,
 } from '../molecules/Renderers';
 import StickyMemo from '../organisms/StickyMemo';
 import { fetchDataHook, getKoreanTime } from '../../utils';
@@ -76,14 +79,8 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
                     source={!article.CONTENTS ? '' : article.CONTENTS}
                     skipHtml={false}
                     renderers={{
-                      link: props => (
-                        <a
-                          href={props.href}
-                          style={{ color: 'rgb(12, 166, 120)' }}
-                        >
-                          {props.children}
-                        </a>
-                      ),
+                      text: TextBlock,
+                      link: LinkBlock,
                       code: CodeBlock,
                       tableCell: TableCellBlock,
                       inlineCode: InlineCodeBlock,

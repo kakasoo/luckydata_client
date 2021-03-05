@@ -55,7 +55,6 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
     };
   }, []);
 
-  console.log('data : ', data);
   return data;
 };
 

@@ -21,6 +21,8 @@ const StyledSpan = styled.span<spanProps>`
   margin-bottom: ${props => props.marginBottom};
   font-family: ${props => props.fontFamily};
   background-color: ${props => props.backgroundColor};
+  user-selcet: ${props => props.userSelect};
+  -webkit-user-select: ${props => props.webkitUserSelect};
 `;
 
 const Span = ({ text, ...rest }: spanProps & { text: string }): JSX.Element => {

@@ -76,6 +76,8 @@ export interface spanProps {
   marginBottom?: string;
   fontFamily?: string;
   backgroundColor?: string;
+  userSelect?: string;
+  webkitUserSelect?: string;
 }
 
 export interface divProps {

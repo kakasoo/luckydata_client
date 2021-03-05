@@ -55,3 +55,13 @@ export const TableCellBlock = (props: any) => {
 
   return <td style={style}>{props.children}</td>;
 };
+
+export const TextBlock = (props: any) => {
+  return <Span color="inherit" fontSize="1.125rem" text={props.value}></Span>;
+};
+
+export const LinkBlock = (props: any) => (
+  <a href={props.href} style={{ color: 'rgb(12, 166, 120)' }}>
+    {props.children}
+  </a>
+);
