@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Header from './components/templates/Header';
-import Modal from './components/organisms/Modal';
+import Modal from './components/organisms/LoginModal';
 import LoginButtonGroup from './components/molecules/LoginModal/LoginButtonGroup';
 import Main from './components/pages/Main';
 import Store from './components/unreuse/Store';

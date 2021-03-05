@@ -2,7 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectBanner from '../organisms/ProjectBanner';
-import ProjectGroup from '../organisms/ProjectGroup';
+import ProjectGroup from '../templates/ProjectGroup';
 import TrackList from '../templates/TrackList';
 import ArticleContents from './ArticleDetailPage';
 

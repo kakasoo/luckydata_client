@@ -17,7 +17,7 @@ const ProjectBanner = (): JSX.Element => {
   return (
     <ProjectBannerWrapper>
       <ProjectBannerBackground />
-      <ProjectBannerText />
+      <ProjectBannerText>TRACK</ProjectBannerText>
     </ProjectBannerWrapper>
   );
 };

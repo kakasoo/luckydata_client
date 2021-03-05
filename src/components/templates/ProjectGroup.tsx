@@ -2,10 +2,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import Span from '../atoms/Span';
-import Project from './Project';
-import LoadingScreen from './LoadingScreen';
-import NoData from './NoData';
+import Project from '../organisms/Project';
+import LoadingScreen from '../organisms/LoadingScreen';
+import NoData from '../organisms/NoData';
 import { fetchDataHook } from '../../utils';
+import Div from '../atoms/StyledDiv';
 
 const StyledProjectGroup = styled.div`
   top: 119px;
@@ -34,7 +35,7 @@ const ProjectGroup = ({ match }: any): JSX.Element => {
         letterSpacing="-0.72pt"
       ></Span>
 
-      <div style={{ marginTop: '24px' }}>
+      <Div marginTop="24px">
         {projects ? (
           projects.length ? (
             projects.map((project: any, index: number) => (
@@ -46,12 +47,12 @@ const ProjectGroup = ({ match }: any): JSX.Element => {
               ></Project>
             ))
           ) : (
-            <NoData></NoData>
+            <NoData />
           )
         ) : (
           <LoadingScreen />
         )}
-      </div>
+      </Div>
     </StyledProjectGroup>
   );
 };

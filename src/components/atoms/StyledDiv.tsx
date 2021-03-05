@@ -46,6 +46,7 @@ const StyledDiv = styled.div<divProps>`
   box-sizing: ${props => props.boxSizing};
   right: ${props => props.right};
   bottom: ${props => props.bottom};
+  box-shadow: ${props => props.boxShadow};
 `;
 
 const Div = ({

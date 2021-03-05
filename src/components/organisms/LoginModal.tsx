@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { LoginContext } from '../../App';
 import setting from '../../config';
+import Span from '../atoms/Span';
 import { modalProps } from '../interfaces';
+import LoginModalInner from '../molecules/LoginModal/LoginModalInner';
 import LoginModalWrapper from '../molecules/LoginModal/LoginModalWrapper';
 
 const ModalOverlay = styled.div`
@@ -18,22 +20,11 @@ const ModalOverlay = styled.div`
   z-index: 999;
 `;
 
-const ModalInner = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
-  background-color: #fff;
-  border-radius: 10px;
-  width: 400px;
-  height: 605px;
-  max-width: 480px;
-  top: 50%;
-  transform: translateY(-50%);
-  margin: 0 auto;
-  padding: 50px 30px;
-`;
-
-const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
+const LoginModal = ({
+  className,
+  visible,
+  children,
+}: modalProps): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
   const [id, setID] = useState('');
   const [password, setPassword] = useState('');
@@ -106,10 +97,14 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
         visible={visible}
         onclick={clickOutside}
       >
-        <ModalInner tabIndex={0} className="modalInner">
-          <h1 style={{ color: 'black', margin: '0px', marginBottom: '5px' }}>
-            LOGIN
-          </h1>
+        <LoginModalInner tabIndex={0}>
+          <Span
+            fontSize="xx-large"
+            fontWeight="bold"
+            color="black"
+            marginBottom="5px"
+            text="Login"
+          ></Span>
           <input
             placeholder="아이디를 입력해주세요."
             style={{
@@ -155,20 +150,17 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
           >
             sign in
           </button>
-          <span
-            style={{
-              color: messageColor,
-              fontSize: '12px',
-              fontWeight: 'bold',
-            }}
-          >
-            {message}
-          </span>
+          <Span
+            color={messageColor}
+            fontSize="12px"
+            fontWeight="bold"
+            text={message}
+          />
           {children}
-        </ModalInner>
+        </LoginModalInner>
       </LoginModalWrapper>
     </ModalOverlay>
   );
 };
 
-export default Modal;
+export default LoginModal;

@@ -126,6 +126,7 @@ export interface divProps {
   right?: string;
   bottom?: string;
   src?: string;
+  boxShadow?: string;
   onclick?: () => any;
 }
 
