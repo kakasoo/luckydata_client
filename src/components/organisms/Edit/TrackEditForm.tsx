@@ -1,10 +1,10 @@
 import React from 'react';
-import Span from '../atoms/Span';
-import setting from '../../config';
-import TextAndInput from '../molecules/TextAndInput';
-import { fetchPost } from '../../utils';
-import EditForm from '../molecules/EditForm';
-import Button from '../atoms/Button';
+import Span from '../../atoms/Span';
+import setting from '../../../config';
+import TextAndInput from '../../molecules/TextAndInput';
+import { fetchPost } from '../../../utils';
+import EditForm from '../../molecules/Edit/EditForm';
+import Button from '../../atoms/Button';
 
 const TrackEditForm = (): JSX.Element => {
   const addTrack = async () => {

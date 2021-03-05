@@ -1,13 +1,12 @@
 import React from 'react';
-import styled from 'styled-components';
-
-const StyledNoData = styled.div`
-  font-size: 100px;
-  font-family: InkLipquid;
-`;
+import Div from '../atoms/StyledDiv';
 
 const NoData = (): JSX.Element => {
-  return <StyledNoData>No data</StyledNoData>;
+  return (
+    <Div fontSize="100px" fontFamily="InkLipquid">
+      No data
+    </Div>
+  );
 };
 
 export default NoData;

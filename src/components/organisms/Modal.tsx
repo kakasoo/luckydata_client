@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { LoginContext } from '../../App';
 import setting from '../../config';
 import { modalProps } from '../interfaces';
-import ModalWrapper from '../molecules/ModalWrapper';
+import LoginModalWrapper from '../molecules/LoginModal/LoginModalWrapper';
 
 const ModalOverlay = styled.div`
   box-sizing: border-box;
@@ -100,7 +100,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
     event.charCode === 13 && login();
   return (
     <ModalOverlay visible={visible}>
-      <ModalWrapper
+      <LoginModalWrapper
         className={className}
         tabIndex={-1}
         visible={visible}
@@ -166,7 +166,7 @@ const Modal = ({ className, visible, children }: modalProps): JSX.Element => {
           </span>
           {children}
         </ModalInner>
-      </ModalWrapper>
+      </LoginModalWrapper>
     </ModalOverlay>
   );
 };

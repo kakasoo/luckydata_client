@@ -1,21 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const ProjectBannerWrapper = styled.div`
-  position: relative;
-  height: 119px;
-  background-color: black;
-`;
-
-const ProjectBannerBackground = styled.img`
-  position: relative;
-  width: 1920px;
-  height: 100%;
-  max-height: 119px;
-  left: 50%;
-  margin-left: -960px;
-  object-fit: cover;
-`;
+import ProjectBannerWrapper from '../molecules/ProjectBannerWrapper';
+import ProjectBannerBackground from '../molecules/Projects/ProjectBannerBackground';
 
 const ProjectBannerText = styled.h2`
   position: absolute;
@@ -30,8 +16,8 @@ const ProjectBannerText = styled.h2`
 const ProjectBanner = (): JSX.Element => {
   return (
     <ProjectBannerWrapper>
-      <ProjectBannerBackground src="/images/head.png"></ProjectBannerBackground>
-      <ProjectBannerText>TRACK</ProjectBannerText>
+      <ProjectBannerBackground />
+      <ProjectBannerText />
     </ProjectBannerWrapper>
   );
 };

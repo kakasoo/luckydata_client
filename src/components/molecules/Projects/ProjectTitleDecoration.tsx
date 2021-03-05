@@ -1,5 +1,5 @@
 import React from 'react';
-import Div from '../atoms/StyledDiv';
+import Div from '../../atoms/StyledDiv';
 
 const ProjectTitleDecoration = (): JSX.Element => (
   <Div

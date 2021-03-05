@@ -1,6 +1,6 @@
-import Div from '../atoms/StyledDiv';
+import Div from '../../atoms/StyledDiv';
 
-const ModalWrapper = (props: any): JSX.Element => {
+const LoginModalWrapper = (props: any): JSX.Element => {
   const display = props.visible ? 'block' : 'none';
   return (
     <Div
@@ -21,4 +21,4 @@ const ModalWrapper = (props: any): JSX.Element => {
   );
 };
 
-export default ModalWrapper;
+export default LoginModalWrapper;

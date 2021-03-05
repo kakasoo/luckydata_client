@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { projectListProps, projectTitle } from '../interfaces';
-import ProjectDescription from '../molecules/ProjectDescription';
-import ProjectList from '../molecules/ProjectList';
+import ProjectDescription from '../molecules/Projects/ProjectDescription';
+import ProjectDetail from '../molecules/Projects/ProjectDetail';
 
 const StyledProject = styled.div`
   display: flex;
@@ -22,7 +22,7 @@ const Project = (props: projectListProps & projectTitle): JSX.Element => {
   return (
     <StyledProject>
       <ProjectDescription title={title}></ProjectDescription>
-      <ProjectList articles={articles} trackUrl={trackUrl}></ProjectList>
+      <ProjectDetail articles={articles} trackUrl={trackUrl}></ProjectDetail>
     </StyledProject>
   );
 };

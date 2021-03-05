@@ -31,6 +31,14 @@ export interface imgProps {
   alt?: string;
 }
 
+export interface inputProps {
+  id?: string;
+  name?: string;
+  height?: string;
+  maxWidth?: string;
+  marginLeft?: string;
+}
+
 export interface pProps {
   position?: string;
   paddingLeft?: string;
@@ -99,6 +107,8 @@ export interface divProps {
   caretColor?: string;
   zIndex?: string;
   maxWidth?: string;
+  maxHeight?: string;
+  objectFit?: string;
   marginLeft?: string;
   display?: string;
   justifyContent?: string;
@@ -115,6 +125,7 @@ export interface divProps {
   boxSizing?: string;
   right?: string;
   bottom?: string;
+  src?: string;
   onclick?: () => any;
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
-import Button from '../atoms/Button';
+import Button from '../../atoms/Button';
+import Div from '../../atoms/StyledDiv';
 
 const LoginButtonGroup = (): JSX.Element => {
   const loginButtons = ['github', 'google', 'facebook'];
@@ -19,7 +20,7 @@ const LoginButtonGroup = (): JSX.Element => {
   };
 
   return (
-    <div style={{ marginTop: '30px' }}>
+    <Div marginTop="30px">
       {loginButtons.map((strategy, index) => (
         <Button
           width="340px"
@@ -33,7 +34,7 @@ const LoginButtonGroup = (): JSX.Element => {
           children={`Connect with ${strategy}`}
         ></Button>
       ))}
-    </div>
+    </Div>
   );
 };
 

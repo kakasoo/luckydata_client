@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import P from '../atoms/P';
+import P from '../../atoms/P';
 import ProjectTitleDecoration from './ProjectTitleDecoration';
 
 const StyledProjectDescription = styled.div`
@@ -23,7 +23,7 @@ const ProjectDescription = (props: { title: string }): JSX.Element => {
         color="rgb(51,51,51)"
         text={title}
         fontWeight="bold"
-      ></P>
+      />
     </StyledProjectDescription>
   );
 };

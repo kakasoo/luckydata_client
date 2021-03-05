@@ -1,9 +1,9 @@
 import React from 'react';
-import Article from './Article';
-import { article, projectListProps } from '../interfaces';
-import Div from '../atoms/StyledDiv';
+import Article from '../Article';
+import { article, projectListProps } from '../../interfaces';
+import Div from '../../atoms/StyledDiv';
 
-const ProjectList = (props: projectListProps): JSX.Element => {
+const ProjectDetail = (props: projectListProps): JSX.Element => {
   const articles = props.articles;
   const trackUrl = props.trackUrl;
 
@@ -26,4 +26,4 @@ const ProjectList = (props: projectListProps): JSX.Element => {
   );
 };
 
-export default ProjectList;
+export default ProjectDetail;
