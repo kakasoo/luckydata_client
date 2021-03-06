@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import { fetchDataHook } from '../../utils';
-import Span from '../atoms/Span';
-import AdminTable from '../molecules/AdminTable';
-import ArticleEditForm from '../organisms/Edit/ArticleEditForm';
-import ProjectEditForm from '../organisms/Edit/ProjectEditForm';
-import TracEditForm from '../organisms/Edit/TrackEditForm';
-import AdminEditForm from '../organisms/Edit/AdminEditForm';
-import UserEditForm from '../organisms/Edit/UserEditForm';
-import LoadingScreen from '../organisms/LoadingScreen';
+import { fetchDataHook } from '../../../utils';
+import Span from '../../atoms/Span';
+import AdminTable from '../../molecules/AdminTable';
+import ArticleEditForm from '../../organisms/Edit/ArticleEditForm';
+import ProjectEditForm from '../../organisms/Edit/ProjectEditForm';
+import TracEditForm from '../../organisms/Edit/TrackEditForm';
+import AdminEditForm from '../../organisms/Edit/AdminEditForm';
+import UserEditForm from '../../organisms/Edit/UserEditForm';
+import LoadingScreen from '../../organisms/LoadingScreen';
 
 const EditContext = styled.div`
   width: 100%;

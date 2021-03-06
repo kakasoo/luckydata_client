@@ -15,33 +15,26 @@ const StyledNoData = styled.div`
   position: fixed;
 `;
 
-const StickySpanDiv = styled.div`
-  &:hover {
-    background: red;
-    font-size: 30px;
-  }
-`;
-
 const StickyMemo = (props: any): JSX.Element => {
   const [data] = props.data;
 
   return (
     <StyledNoData>
-      <StickySpanDiv>
+      <div>
         <P text={`게시글 제목 : ${data.TITLE}`}></P>
-      </StickySpanDiv>
-      <StickySpanDiv>
+      </div>
+      <div>
         <P text={`게시글 번호 : ${data.ID}`}></P>
-      </StickySpanDiv>
-      <StickySpanDiv>
+      </div>
+      <div>
         <P text={`게시글 최초 작성일 : ${getKoreanTime(data.createdAt)}`}></P>
-      </StickySpanDiv>
-      <StickySpanDiv>
+      </div>
+      <div>
         <P text={`게시글 최종 수정일 : ${getKoreanTime(data.updatedAt)}`}></P>
-      </StickySpanDiv>
-      <StickySpanDiv>
+      </div>
+      <div>
         <P text={`게시글 작성자 : ${data.ADMIN_ID}`}></P>
-      </StickySpanDiv>
+      </div>
     </StyledNoData>
   );
 };

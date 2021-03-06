@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
-import { fetchDataHook } from '../../utils';
-import { track } from '../interfaces';
-import LoadingScreen from '../organisms/LoadingScreen';
-import NoData from '../organisms/NoData';
-import Snow from '../unreuse/Snow';
+import { fetchDataHook } from '../../../utils';
+import { track } from '../../interfaces';
+import LoadingScreen from '../../organisms/LoadingScreen';
+import NoData from '../../organisms/NoData';
+import Snow from '../../unreuse/Snow';
 
 const StyledTrackList = styled.div`
   display: flex;
@@ -53,13 +53,14 @@ const StyledOneTrack = styled.div`
   overflow: hidden;
   -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.4);
   margin: 30px;
-
-  &:hover {
+`;
+/** OneTrack에서 해당 애니메이션 제거
+   &:hover {
     animation-name: ${tada};
     animation-duration: 1s;
     cursor: pointer;
   }
-`;
+ */
 
 const TrackCardImg = styled.img`
   width: 300px;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fetchDataHook } from '../../utils';
 import Span from '../atoms/Span';
 import LoadingScreen from '../organisms/LoadingScreen';
-import MarkdownEditor from '../templates/MarkdownEditor';
+import MarkdownEditor from './templates/MarkdownEditor';
 
 const EditContext = styled.div`
   width: 100%;

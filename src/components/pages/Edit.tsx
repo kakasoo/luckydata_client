@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import setting from '../../config';
 import { YouAreNotAdmin } from '../../utils';
 import LoadingScreen from '../organisms/LoadingScreen';
-import AfterCheckAdmin from '../templates/AfterCheckAdmin';
+import AfterCheckAdmin from './templates/AfterCheckAdmin';
 
 const Edit = (): JSX.Element => {
   const [isAdmin, setResult] = useState<number | null>(null);

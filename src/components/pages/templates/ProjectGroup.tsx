@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 import styled from 'styled-components';
-import Span from '../atoms/Span';
-import Project from '../organisms/Project';
-import LoadingScreen from '../organisms/LoadingScreen';
-import NoData from '../organisms/NoData';
-import { fetchDataHook } from '../../utils';
-import Div from '../atoms/StyledDiv';
+import Span from '../../atoms/Span';
+import Project from '../../organisms/Project';
+import LoadingScreen from '../../organisms/LoadingScreen';
+import NoData from '../../organisms/NoData';
+import { fetchDataHook } from '../../../utils';
+import Div from '../../atoms/StyledDiv';
 
 const StyledProjectGroup = styled.div`
   top: 119px;

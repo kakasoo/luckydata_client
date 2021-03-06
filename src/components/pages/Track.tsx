@@ -2,8 +2,8 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 import ProjectBanner from '../organisms/ProjectBanner';
-import ProjectGroup from '../templates/ProjectGroup';
-import TrackList from '../templates/TrackList';
+import ProjectGroup from './templates/ProjectGroup';
+import TrackList from './templates/TrackList';
 import ArticleContents from './ArticleDetailPage';
 
 const StyledTrack = styled.div`
