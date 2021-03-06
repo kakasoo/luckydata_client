@@ -27,7 +27,7 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
         const cookie = localStorage.getItem('token');
         const initData = localStorage.getItem(API_PATH);
 
-        if (initData) {
+        if (initData && initData !== 'undefined' && initData !== 'null') {
           setData(JSON.parse(initData));
         }
 
@@ -38,7 +38,6 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
               Authorization: cookie || '',
             },
           });
-          console.log('body : ', response);
           const body = await response.json();
           setData(body.result);
 
