@@ -7,8 +7,8 @@ window.onload = () => {
   // 마찬가지로 canvas에 옵션을 주었다.
   const myCanvas = document.getElementById('myCanvas');
   const ctx = myCanvas.getContext('2d');
-  let width = (myCanvas.width = screen.width);
-  let height = (myCanvas.height = screen.height);
+  const width = (myCanvas.width = screen.width);
+  const height = (myCanvas.height = screen.height);
 
   let arr = [];
   const maxNum = 100;

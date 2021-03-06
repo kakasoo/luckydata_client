@@ -5,6 +5,7 @@ import { fetchDataHook } from '../../utils';
 import { track } from '../interfaces';
 import LoadingScreen from '../organisms/LoadingScreen';
 import NoData from '../organisms/NoData';
+import Snow from '../unreuse/Snow';
 
 const StyledTrackList = styled.div`
   display: flex;
@@ -80,6 +81,7 @@ const TrackList = ({ match }: any): JSX.Element => {
   const tracks = fetchDataHook('/api/tracks', 60 * 1000);
   return (
     <StyledTrackList>
+      <Snow></Snow>
       {tracks ? (
         tracks.length ? (
           tracks.map((track: track, index) => (
