@@ -38,6 +38,7 @@ export const fetchDataHook = (API_PATH: string, ms: number) => {
               Authorization: cookie || '',
             },
           });
+          console.log('body : ', response);
           const body = await response.json();
           setData(body.result);
 

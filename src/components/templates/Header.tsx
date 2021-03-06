@@ -11,13 +11,14 @@ const Header = (): JSX.Element => {
   const { state, onclick } = useContext(LoginContext);
   const isLogin = localStorage.getItem('token') ? true : false;
   if (isLogin) {
-    initFetch();
+    // initFetch();
   }
 
   const onclickLoginButton = () => onclick(!state);
 
   const onclickLogoutButton = () => {
-    localStorage.setItem('token', '');
+    localStorage.removeItem('token');
+    localStorage.removeItem('/api/tracks');
     window.location.href = '/';
   };
 
