@@ -24,7 +24,7 @@ const HrUnderTable = styled.hr`
 const StyledEdit = styled.div``;
 
 const AfterCheckAdmin = (): JSX.Element => {
-  const data: any = fetchDataHook('/api/all', 60 * 1000);
+  const data: any = fetchDataHook('/api/all', 1000);
 
   return data ? (
     <StyledEdit>
