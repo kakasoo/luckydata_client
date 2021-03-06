@@ -14,7 +14,7 @@ const AdminEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost(setting.SERVER_ADDRESS + '/api/admins', {
+    fetchPost('/api/admins', {
       ID: ADMIN_USER_ID?.value,
     });
   };

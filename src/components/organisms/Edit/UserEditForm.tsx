@@ -18,7 +18,7 @@ const UserEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost(setting.SERVER_ADDRESS + '/api/users', {
+    fetchPost('/api/users', {
       USER_ID: U_USER_ID?.value,
       PASSWORD: U_PASSWORD?.value,
       MAJOR: MAJOR?.value,

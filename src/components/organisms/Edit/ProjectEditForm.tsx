@@ -17,7 +17,7 @@ const ProjectEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost(setting.SERVER_ADDRESS + '/api/projects', {
+    fetchPost('/api/projects', {
       TITLE: P_TITLE?.value,
       WRITER: P_WRITER?.value,
       TRACK_ID: P_TRACK_ID?.value,

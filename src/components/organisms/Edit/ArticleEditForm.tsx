@@ -17,8 +17,7 @@ const ProjectEditForm = (): JSX.Element => {
     if (!A_TITLE.value || !A_ADMIN.value || !A_PROJECT_ID.value) {
       return;
     }
-
-    fetchPost(setting.SERVER_ADDRESS + '/api/articles', {
+    fetchPost('/api/articles', {
       TITLE: A_TITLE?.value,
       ADMIN_ID: A_ADMIN?.value,
       CONTENTS: A_CONTENTS.value,

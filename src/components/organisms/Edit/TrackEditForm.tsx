@@ -15,7 +15,7 @@ const TrackEditForm = (): JSX.Element => {
       return;
     }
 
-    fetchPost(setting.SERVER_ADDRESS + '/api/tracks', {
+    fetchPost('/api/tracks', {
       DEPARTMENT: DEPARTMENT.value,
       ORDER: DEPARTMENT_ORDER?.value || 0,
     });
