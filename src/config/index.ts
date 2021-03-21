@@ -15,7 +15,7 @@ const setting: {
 } = {
   development: {
     SERVER_ADDRESS: process.env.REACT_APP_DEVELOP_SERVER,
-    FETCH_ADDRESS: '',
+    FETCH_ADDRESS: 'https://127.0.0.1:4000',
     CLIENT_ROOT: process.env.REACT_APP_CLIENT_DEV_ROOT_ADDRESS,
   },
   production: {

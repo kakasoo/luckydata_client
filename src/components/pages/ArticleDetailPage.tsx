@@ -15,6 +15,7 @@ import {
   LinkBlock,
   TableCellBlock,
   TextBlock,
+  ImgBlock,
 } from '../molecules/Renderers';
 import StickyMemo from '../organisms/StickyMemo';
 import { fetchDataHook, getKoreanTime } from '../../utils';
@@ -84,6 +85,7 @@ const ArticleDetailPage = ({ match }: any): JSX.Element => {
                       tableCell: TableCellBlock,
                       inlineCode: InlineCodeBlock,
                       blockquote: BlockQuoteBlock,
+                      image: ImgBlock,
                     }}
                   />
                 </VerticalLeftPage>

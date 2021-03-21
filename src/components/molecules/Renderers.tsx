@@ -65,3 +65,7 @@ export const LinkBlock = (props: any) => (
     {props.children}
   </a>
 );
+
+export const ImgBlock = (props: any) => (
+  <img src={props.src} style={{ maxWidth: '100%' }}></img>
+);
